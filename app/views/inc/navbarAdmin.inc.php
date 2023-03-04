@@ -11,30 +11,19 @@
         <div class="navbar-collapse collapse navbarMe" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto sousNavbarME1">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link active" href="#">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">For Dog</a>
+                    <a class="nav-link active" href="#">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">For Cat</a>
+                    <a class="nav-link active" href="#">Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Beds & Brackets</a>
+                    <a class="nav-link active" href="#">Categories</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto sousNavbarME2" style="margin-left : 0px !important">
-                <li class="nav-item dropdown drop1">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="true">
-                        <img class="icon" src="<?=URLROOT?>image/lang.svg" alt="lang">
-                    </a>
-                    <ul class="dropdown-menu mr2" data-bs-popper="static">
-                        <li><a class="dropdown-item" href="#">ENGLISH</a></li>
-                        <li><a class="dropdown-item" href="#">FRANCH</a></li>
-                        <li><a class="dropdown-item" href="#">ARABIC</a></li>
-                    </ul>
-                </li>
                 <li class="nav-item dropdown drop2">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="true">
@@ -44,14 +33,8 @@
                         <li><a class="dropdown-item" href="#">LOGIN</a></li>
                         <li><a class="dropdown-item" href="#">SIGNUP</a></li>
 
-                        <li><a class="dropdown-item" href="#">PROFIL</a></li>
                         <li><a class="dropdown-item" href="#">LOGOUT</a></li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">
-                        <img class="icon" src="<?=URLROOT?>image/card.svg" alt="card">
-                    </a>
                 </li>
             </ul>
         </div>
