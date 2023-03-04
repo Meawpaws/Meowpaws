@@ -14,7 +14,18 @@
             <a href="#">CONTACT US</a>
         </div>
         <div class="discTitleFooter">
-            hi desc 2
+            <a href="">
+                <img src="<?= URLROOT ?>image/pinterest.svg" alt="pinterest">
+            </a>
+            <a href="">
+                <img src="<?= URLROOT ?>image/instagram.svg" alt="instagram">
+            </a>
+            <a href="">
+                <img src="<?= URLROOT ?>image/facebook.svg" alt="facebook">
+            </a>
+            <a href="">
+                <img src="<?= URLROOT ?>image/gmail.svg" alt="gmail">
+            </a>
         </div>
     </div>
     <div class="paymentFooter">
@@ -22,7 +33,12 @@
             PAYMENTS
         </div>
         <div class="discTitleFooter">
-            hi desc 3
+            <img src="<?= URLROOT ?>image/paypal.svg" alt="paypal">
+            <img src="<?= URLROOT ?>image/masterCard.svg" alt="masterCard">
+            <img src="<?= URLROOT ?>image/visa.svg" alt="visa">
+            <a href="">
+                <br><span>How To Pay</span>
+            </a>
         </div>
     </div>
     <div class="shippingEtRefoundFooter">
@@ -30,7 +46,8 @@
             SHIPPING & REFOUND
         </div>
         <div class="discTitleFooter">
-            hi desc 4
+            <a href="#">Shipping Policy</a><br>
+            <a href="#">Return Policy</a>
         </div>
     </div>
     <div class="medcinFooter">
@@ -38,13 +55,15 @@
             MEDCIN CAN HELP
         </div>
         <div class="discTitleFooter">
-            hi desc 5
+            <a href="">
+                <img class="medicin" src="<?= URLROOT ?>image/medicin.svg" alt="medicin">
+            </a>
         </div>
     </div>
 </footer>
 <?php endif ?>
 <!-- script -->
-<script src="<?=URLROOT?>js/main.js"></script>
+<script src=" <?=URLROOT?>js/main.js"></script>
 <script src="<?=URLROOT?>js/bootstrap.bundle.min.js"></script>
 </body>
 
