@@ -10,6 +10,17 @@ a {
   text-decoration: none !important;
   color: black !important;
 }
+.h1{
+  display: flex;
+  justify-content: center;
+}
+.coverImage{
+  width: 100%;
+  margin: 5px 0;
+}
+.iconImage{
+  margin: 42px 0;
+}
 
 /* navbar */
 .navMe {
@@ -292,3 +303,4 @@ img.medicin {
   flex-direction: column;
   align-items: flex-start;
 }
+/* dashboard */
