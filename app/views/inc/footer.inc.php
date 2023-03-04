@@ -1,3 +1,4 @@
+<?php if (!isset($noFooter)):?>
 <footer>
     <div class="infoFooter">
         <div class="titleFooter">
@@ -41,9 +42,10 @@
         </div>
     </div>
 </footer>
-
+<?php endif ?>
 <!-- script -->
-<script src="<?= URLROOT ?>js/main.js"></script>
-<script src="<?= URLROOT ?>js/bootstrap.bundle.min.js"></script>
+<script src="<?=URLROOT?>js/main.js"></script>
+<script src="<?=URLROOT?>js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
