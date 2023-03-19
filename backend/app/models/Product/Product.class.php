@@ -41,15 +41,15 @@ class Product
     }
     public function selectAll()
     {
-        $this->db->query("SELECT * FROM `product`");
+        $this->db->query("SELECT * FROM `product` po, `category` ca, `picturesproduct` pp WHERE po.id_c = ca.id_c AND po.id_p = pp.id_p");
         $row = $this->db->fetchAll();
         return $row;
     }
     public function selectById($id)
     {
-        $this->db->query("SELECT * FROM `product` WHERE `id_p` = :id");
+        $this->db->query("SELECT * FROM `product` po, `category` ca, `picturesproduct` pp WHERE po.id_c = ca.id_c AND po.id_p = pp.id_p AND `id_p` = :id");
         $this->db->bind(':id',$id);
-        $row = $this->db->fetch();
+        $row = $this->db->fetchAll();
         return $row;
     }    
     public function update($sql)

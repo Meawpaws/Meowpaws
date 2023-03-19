@@ -42,7 +42,7 @@ class Users extends Controller{
 
             }else{
                 // user register failed
-                $this->view('users/register', $data);
+                // $this->view('users/register', $data);
             }
         }else
         {
@@ -59,7 +59,7 @@ class Users extends Controller{
             ];
 
             // load the register
-            $this->view('users/register',$data);
+            // $this->view('users/register',$data);
         }
     }
     public function login()
@@ -91,11 +91,11 @@ class Users extends Controller{
                 }else {
                     // password incorrect
                     $data['password_err'] = 'Password Incorrect';
-                    $this->view('users/login', $data);
+                    // $this->view('users/login', $data);
                 }
             }else{
                 // user register failed
-                $this->view('users/login', $data);
+                // $this->view('users/login', $data);
             }
         }else
         {
@@ -111,7 +111,7 @@ class Users extends Controller{
             ];
 
             // load the register
-            $this->view('users/login',$data);
+            // $this->view('users/login',$data);
         }
     }
     // logout

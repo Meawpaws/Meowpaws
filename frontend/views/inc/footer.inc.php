@@ -15,16 +15,16 @@
         </div>
         <div class="discTitleFooter">
             <a href="">
-                <img src="<?= URLROOT ?>image/pinterest.svg" alt="pinterest">
+                <img src="../../image/pinterest.svg" alt="pinterest">
             </a>
             <a href="">
-                <img src="<?= URLROOT ?>image/instagram.svg" alt="instagram">
+                <img src="../../image/instagram.svg" alt="instagram">
             </a>
             <a href="">
-                <img src="<?= URLROOT ?>image/facebook.svg" alt="facebook">
+                <img src="../../image/facebook.svg" alt="facebook">
             </a>
             <a href="">
-                <img src="<?= URLROOT ?>image/gmail.svg" alt="gmail">
+                <img src="../../image/gmail.svg" alt="gmail">
             </a>
         </div>
     </div>
@@ -33,9 +33,9 @@
             PAYMENTS
         </div>
         <div class="discTitleFooter">
-            <img src="<?= URLROOT ?>image/paypal.svg" alt="paypal">
-            <img src="<?= URLROOT ?>image/masterCard.svg" alt="masterCard">
-            <img src="<?= URLROOT ?>image/visa.svg" alt="visa">
+            <img src="../../image/paypal.svg" alt="paypal">
+            <img src="../../image/masterCard.svg" alt="masterCard">
+            <img src="../../image/visa.svg" alt="visa">
             <a href="">
                 <br><span>How To Pay</span>
             </a>
@@ -56,15 +56,15 @@
         </div>
         <div class="discTitleFooter">
             <a href="">
-                <img class="medicin" src="<?= URLROOT ?>image/medicin.svg" alt="medicin">
+                <img class="medicin" src="../../image/medicin.svg" alt="medicin">
             </a>
         </div>
     </div>
 </footer>
 <?php endif ?>
 <!-- script -->
-<script src=" <?=URLROOT?>js/main.js"></script>
-<script src="<?=URLROOT?>js/bootstrap.bundle.min.js"></script>
+<script src=" ../../js/main.js"></script>
+<script src="../../js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
