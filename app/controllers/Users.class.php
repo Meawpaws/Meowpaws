@@ -1,6 +1,7 @@
 <?php 
 class Users extends Controller{
 
+    private $userModel;
     public function __construct(){
         $this->userModel = $this->model('User');
     }
@@ -9,9 +10,9 @@ class Users extends Controller{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST= filter_input_array(INPUT_POST ,FILTER_SANITIZE_STRING);
             $data = [
-                'name' => $_POST['name_user'],
-                'email' => $_POST['email_user'],
-                'password' => $_POST['password_user'],
+                'name' => $_POST['username'],
+                'email' => $_POST['email'],
+                'password' => $_POST['password'],
                 'confirm-password' => $_POST['userConfirmPassword'],
                 'avatar' => 'avatar.png',
                 'name_err' => '',
@@ -66,8 +67,8 @@ class Users extends Controller{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST= filter_input_array(INPUT_POST ,FILTER_SANITIZE_STRING);
             $data = [
-                'email' => $_POST['email_user'],
-                'password' => $_POST['password_user'],
+                'email' => $_POST['email'],
+                'password' => $_POST['password'],
                 'email_err' => '',
                 'password_err' => ''
             ];
@@ -83,7 +84,7 @@ class Users extends Controller{
                 if($user){
                     // set The sessions
                     $_SESSION['user_id'] = $user->id;
-                    $_SESSION['user_name'] = $user->name_user;
+                    $_SESSION['user_name'] = $user->username;
                     $_SESSION['user_avatar'] = $user->avatar_user;
 
                     redirect('pages');

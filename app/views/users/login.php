@@ -8,13 +8,13 @@
                     <!-- email input -->
                     <div class="form-group">
                         <span for="email">Email<sup>*</sup></span>
-                        <input type="text" name="email_user" value="<?=$data['email']?>" class="form-control form-control-lg <?= (!empty($data['email_err']) ? 'is-invalid' : '') ?>">
+                        <input type="text" name="email" value="<?=$data['email']?>" class="form-control form-control-lg <?= (!empty($data['email_err']) ? 'is-invalid' : '') ?>">
                         <span class="invalid-feedback"><?= $data['email_err'] ?></span>
                     </div>
                     <!-- password input -->
                     <div class="form-group">
                         <span for="password">Password<sup>*</sup></span>
-                        <input type="password" name="password_user" value="<?=$data['password']?>" class="form-control form-control-lg <?= (!empty($data['password_err']) ? 'is-invalid' : '') ?>">
+                        <input type="password" name="password" value="<?=$data['password']?>" class="form-control form-control-lg <?= (!empty($data['password_err']) ? 'is-invalid' : '') ?>">
                         <span class="invalid-feedback"><?= $data['password_err'] ?></span>
                     </div>
                     <div>
