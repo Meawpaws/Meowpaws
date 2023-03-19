@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    Options -Multiviews
+    RewriteEngine On
+    RewriteBase /Meowpaws/frontend/public
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^$ views/ [L]
+    RewriteRule (.*) views/$1 [L]
+</IfModule>
