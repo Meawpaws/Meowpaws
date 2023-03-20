@@ -5,26 +5,26 @@
             INFO
         </div>
         <div class="discTitleFooter">
-            <a href="#">About Us</a><br>
-            <a href="#">Privacy Policy</a>
+            <a href="<?=URLROOT?>">About Us</a><br>
+            <a href="<?=URLROOT?>">Privacy Policy</a>
         </div>
     </div>
     <div class="contactFooter">
         <div class="titleFooter">
-            <a href="#">CONTACT US</a>
+            <a href="<?=URLROOT?>">CONTACT US</a>
         </div>
         <div class="discTitleFooter">
             <a href="">
-                <img src="../../image/pinterest.svg" alt="pinterest">
+                <img src="<?=URLROOT?>/layout/image/pinterest.svg" alt="pinterest">
             </a>
             <a href="">
-                <img src="../../image/instagram.svg" alt="instagram">
+                <img src="<?=URLROOT?>/layout/image/instagram.svg" alt="instagram">
             </a>
             <a href="">
-                <img src="../../image/facebook.svg" alt="facebook">
+                <img src="<?=URLROOT?>/layout/image/facebook.svg" alt="facebook">
             </a>
             <a href="">
-                <img src="../../image/gmail.svg" alt="gmail">
+                <img src="<?=URLROOT?>/layout/image/gmail.svg" alt="gmail">
             </a>
         </div>
     </div>
@@ -33,10 +33,10 @@
             PAYMENTS
         </div>
         <div class="discTitleFooter">
-            <img src="../../image/paypal.svg" alt="paypal">
-            <img src="../../image/masterCard.svg" alt="masterCard">
-            <img src="../../image/visa.svg" alt="visa">
-            <a href="">
+            <img src="<?=URLROOT?>/layout/image/paypal.svg" alt="paypal">
+            <img src="<?=URLROOT?>/layout/image/masterCard.svg" alt="masterCard">
+            <img src="<?=URLROOT?>/layout/image/visa.svg" alt="visa">
+            <a href="<?=URLROOT?>">
                 <br><span>How To Pay</span>
             </a>
         </div>
@@ -46,8 +46,8 @@
             SHIPPING & REFOUND
         </div>
         <div class="discTitleFooter">
-            <a href="#">Shipping Policy</a><br>
-            <a href="#">Return Policy</a>
+            <a href="<?=URLROOT?>">Shipping Policy</a><br>
+            <a href="<?=URLROOT?>">Return Policy</a>
         </div>
     </div>
     <div class="medcinFooter">
@@ -55,16 +55,16 @@
             MEDCIN CAN HELP
         </div>
         <div class="discTitleFooter">
-            <a href="">
-                <img class="medicin" src="../../image/medicin.svg" alt="medicin">
+            <a href="<?=URLROOT?>">
+                <img class="medicin" src="<?=URLROOT?>/layout/image/medicin.svg" alt="medicin">
             </a>
         </div>
     </div>
 </footer>
 <?php endif ?>
 <!-- script -->
-<script src=" ../../js/main.js"></script>
-<script src="../../js/bootstrap.bundle.min.js"></script>
+<script src=" <?=URLROOT?>/layout/js/main.js"></script>
+<script src="<?=URLROOT?>/layout/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary navMe">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<?=URLROOT?>" style="margin: 0;">
-            <img class="logo" src="<?=URLROOT?>image/logo.svg" alt="logo">
+        <a class="navbar-brand" href="" style="margin: 0;">
+            <img class="logo" src="./layout/image/logo.svg" alt="logo">
         </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -27,7 +27,7 @@
                 <li class="nav-item dropdown drop2">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="true">
-                        <img class="icon" src="<?=URLROOT?>image/user.svg" alt="user">
+                        <img class="icon" src="./layout/image/user.svg" alt="user">
                     </a>
                     <ul class="dropdown-menu mr" data-bs-popper="static">
                         <li><a class="dropdown-item" href="#">LOGIN</a></li>
@@ -40,3 +40,4 @@
         </div>
     </div>
 </nav>
+<?php $noFooter = ' '?>

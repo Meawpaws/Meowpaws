@@ -4,6 +4,5 @@
     RewriteBase /Meowpaws/frontend/public
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^$ views/ [L]
-    RewriteRule (.*) views/$1 [L]
+    RewriteRule  ^(.+)$ index.php?url=$1 [QSA,L]
 </IfModule>

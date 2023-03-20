@@ -13,12 +13,13 @@ class Product
         $this->db->bind(':image',$image);
         $this->db->execute();
     }
-    public function Add($pname,	$price,	$description, $id_c, $image = [])
+    public function Add($pname,	$price,	$description, $id_c,$imagePricipal, $image = [])
     {
-        $this->db->query('INSERT INTO `product`(`pname`, `price`, `description`, `id_c`) VALUES (:pname,:price,:description,:id_c)');
+        $this->db->query('INSERT INTO `product`(`pname`, `price`, `description`, `id_c`,`imagePricipal`) VALUES (:pname,:price,:description,:id_c,:imagePricipal)');
         $this->db->bind(':pname',$pname);
         $this->db->bind(':price',$price);
         $this->db->bind(':description',$description);
+        $this->db->bind(':imagePricipal',$imagePricipal);
         $this->db->bind(':id_c',$id_c);
         $this->db->execute();
 
@@ -42,6 +43,12 @@ class Product
     public function selectAll()
     {
         $this->db->query("SELECT * FROM `product` po, `category` ca, `picturesproduct` pp WHERE po.id_c = ca.id_c AND po.id_p = pp.id_p");
+        $row = $this->db->fetchAll();
+        return $row;
+    }
+    public function selectLast4()
+    {
+        $this->db->query("SELECT * FROM `product` po, `category` ca, `picturesproduct` pp WHERE po.id_c = ca.id_c AND po.id_p = pp.id_p ORDER BY `product`.`id_p` DESC LIMIT 4");
         $row = $this->db->fetchAll();
         return $row;
     }
