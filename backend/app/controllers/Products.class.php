@@ -16,10 +16,7 @@ class Products extends Controller
         // Blog selectLast4Product query
         $products_arr = $this->productModel->selectLast4();
         // Get row count
-        $num = count($products_arr);
-        var_dump($num);
-        die;
-        
+        $num = count($products_arr);        
         // Check if any Product
         if ($num > 0) {
             // Turn to JSON & output

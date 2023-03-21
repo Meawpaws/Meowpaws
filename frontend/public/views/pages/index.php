@@ -9,23 +9,16 @@
         <img class="iconImage" src="<?= URLROOT ?>layout/image/siteWebPages/i-2.svg" alt="cover">
     </h1>
 </div>
-<div class="lastProduct">
-    <div class="product">
-        <a href="#">
-            <img src="<?= URLROOT ?>layout/image/siteWebPages/i-1.svg" alt="">
-        </a>
-        <a href="#">
-            <img src="<?= URLROOT ?>layout/image/siteWebPages/i-1.svg" alt="">
-        </a>
-        <a href="#">
-            <img src="<?= URLROOT ?>layout/image/siteWebPages/i-1.svg" alt="">
-        </a>
-        <a href="#">
-            <img src="<?= URLROOT ?>layout/image/siteWebPages/i-1.svg" alt="">
-        </a>
+<div class="lastProducts">
+    <div class="products" id="products">
+        
     </div>
     <div class="btnAll">
         <a href= "<?=URLROOT?>pages/store">View More</a>
     </div>
+    <p class = "title">
+        FEATURED IN
+    </p>
 </div>
+<script src="<?= URLROOT ?>layout/js/home.js"></script>
 <?php include_once './views/inc/footer.inc.php' ?>
