@@ -1,3 +1,13 @@
+@media (max-width:1440px){
+    .coverImage2{
+        height: 133vh;
+    }
+}
+@media (max-width:1024px){
+    .coverImage2{
+        height: 105vh;
+    }
+}
 @media (max-width:992px){
     .mr{
         margin-left: 0px !important;
@@ -28,6 +38,14 @@
         align-items: center;
         margin-right: 15px;
     }
+    .coverImage2{
+        height: 119vh;
+    }
+}
+@media (max-width:768px){
+    .coverImage2{
+        height: 79vh;
+    }
 }
 @media (max-width:570px) {
 .h1 h1 img{
@@ -38,22 +56,40 @@
 }
 }
 @media (max-width:450px) {
-.h1 h1 img{
-    margin: 10px 0;
-    width: 2rem;
+    .h1 h1 img{
+        margin: 10px 0;
+        width: 2rem;
+    }
+    .h1 h1{
+        font-size: 20px;
+    }
+    .coverImage2{
+        height: 119vh;
+    }
 }
-.h1 h1{
-    font-size: 20px;
+@media (max-width:425px){
+    .coverImage2{
+        height: 43vh;
+    }
 }
+@media (max-width:375px){
+    .coverImage2{
+        height: 38vh;
+    }
 }
 @media (max-width:350px) {
-.h1 h1 img{
-    margin: 10px 0;
-    width: 1.5rem;
+    .h1 h1 img{
+        margin: 10px 0;
+        width: 1.5rem;
+    }
+    .h1 h1{
+        font-size: 15px;
+    }
 }
-.h1 h1{
-    font-size: 15px;
-}
+@media (max-width:320px){
+    .coverImage2{
+        height: 33vh;
+    }
 }
 @media (max-width:150px) {
 .h1 h1{

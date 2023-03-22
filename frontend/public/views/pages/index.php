@@ -19,6 +19,12 @@
     <p class = "title">
         FEATURED IN
     </p>
+    <p class = "sous-title">
+        Winter is the most magical of seasons and its not only a season it’s celebration.
+    </p>
+</div>
+<div class="coverImage2">
+    
 </div>
 <script src="<?= URLROOT ?>layout/js/home.js"></script>
 <?php include_once './views/inc/footer.inc.php' ?>

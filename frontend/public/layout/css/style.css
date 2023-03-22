@@ -370,3 +370,25 @@ img.medicin {
 
   mix-blend-mode: normal;
 }
+.sous-title{
+  font-family: 'Inter';
+font-style: italic;
+font-weight: 400;
+font-size: 47px;
+line-height: 68px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #000000;
+border: 6px solid #000000;border: 6px solid #000000;
+margin : 0 10%;
+margin-bottom: 10px;
+}
+.coverImage2 {
+  background-image: url(http://localhost/Meowpaws/layout/image/siteWebPages/c-3.svg);
+  width: 100%;
+  margin: 5px 0;
+  height: 136vh;
+  background-size:cover;
+}
