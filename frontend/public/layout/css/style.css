@@ -392,3 +392,20 @@ margin-bottom: 10px;
   height: 136vh;
   background-size:cover;
 }
+.Image2{
+  width: 54%;
+  height: 100%;
+}
+.divImage2{
+  height: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.sousDivImage2{
+  margin-top : 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

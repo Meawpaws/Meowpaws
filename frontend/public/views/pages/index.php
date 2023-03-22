@@ -24,7 +24,24 @@
     </p>
 </div>
 <div class="coverImage2">
-    
+    <div class="Image2">
+        <div class="divImage2">
+
+        </div>
+        <div class="divImage2">
+            
+        </div>
+        <div class="divImage2">
+            <div class="sousDivImage2">
+                <a href="<?= URLROOT ?>pages/medicine"><img src="<?= URLROOT ?>layout/image/siteWebPages/i-3.svg" alt="cover"></a>
+                <span>uanemaro216@gmail.com</span>
+            </div>
+        </div>
+    </div>
 </div>
+<p class = "sous-title" style="margin : 10px 20%">
+    SHARE YOUR MOMENTS WITH US
+</p>
+<img class="coverImage" src="<?= URLROOT ?>layout/image/siteWebPages/c-4.svg" alt="cover">
 <script src="<?= URLROOT ?>layout/js/home.js"></script>
 <?php include_once './views/inc/footer.inc.php' ?>

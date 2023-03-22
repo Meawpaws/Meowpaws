@@ -55,7 +55,7 @@
             MEDCIN CAN HELP
         </div>
         <div class="discTitleFooter">
-            <a href="<?=URLROOT?>">
+            <a href="<?= URLROOT ?>pages/medicine">
                 <img class="medicin" src="<?=URLROOT?>/layout/image/medicin.svg" alt="medicin">
             </a>
         </div>
