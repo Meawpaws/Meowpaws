@@ -409,3 +409,38 @@ margin-bottom: 10px;
   align-items: center;
   justify-content: center;
 }
+p{
+  margin : 5px 15px;
+}
+/* about */
+.div{
+  display: flex;
+  margin: 10px 5%;
+}
+.infoImage{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px 0;
+}
+.infoImage .image{
+  width: 45%;
+}
+.infoImage .info{
+  width: 45%;
+}
+.infoImage .info p{
+  margin: 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.coverImage3{
+width: 100%;
+}
+.H3PInfo{
+  margin: 10px 3rem;
+}
+.H3PInfo p{
+  margin: 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}

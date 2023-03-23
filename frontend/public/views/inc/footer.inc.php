@@ -5,13 +5,13 @@
             INFO
         </div>
         <div class="discTitleFooter">
-            <a href="<?=URLROOT?>">About Us</a><br>
-            <a href="<?=URLROOT?>">Privacy Policy</a>
+            <a href="<?=URLROOT?>pages/about">About Us</a><br>
+            <a href="<?=URLROOT?>pages/privacy">Privacy Policy</a>
         </div>
     </div>
     <div class="contactFooter">
         <div class="titleFooter">
-            <a href="<?=URLROOT?>">CONTACT US</a>
+            <a href="<?=URLROOT?>pages/contact">CONTACT US</a>
         </div>
         <div class="discTitleFooter">
             <a href="">
@@ -36,7 +36,7 @@
             <img src="<?=URLROOT?>/layout/image/paypal.svg" alt="paypal">
             <img src="<?=URLROOT?>/layout/image/masterCard.svg" alt="masterCard">
             <img src="<?=URLROOT?>/layout/image/visa.svg" alt="visa">
-            <a href="<?=URLROOT?>">
+            <a href="<?=URLROOT?>pages/pay">
                 <br><span>How To Pay</span>
             </a>
         </div>
@@ -46,8 +46,8 @@
             SHIPPING & REFOUND
         </div>
         <div class="discTitleFooter">
-            <a href="<?=URLROOT?>">Shipping Policy</a><br>
-            <a href="<?=URLROOT?>">Return Policy</a>
+            <a href="<?=URLROOT?>pages/shipping">Shipping Policy</a><br>
+            <a href="<?=URLROOT?>pages/return">Return Policy</a>
         </div>
     </div>
     <div class="medcinFooter">
