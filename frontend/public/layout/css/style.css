@@ -339,6 +339,13 @@ img.medicin {
 
 .btnAll {
   margin-bottom: 30px;
+  padding: 6px 15px;
+  background: rgba(0, 0, 0, 0.64);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  font-family: 'Poppins';
+  font-size: 23px;
+  color: #FFFFFF !important;
 }
 
 .btnAll a {
@@ -352,6 +359,9 @@ img.medicin {
 }
 
 .btnAll a:hover {
+  background: #000000;
+}
+.btnAll:hover {
   background: #000000;
 }
 
@@ -443,4 +453,66 @@ width: 100%;
   margin: 0;
   margin-top: 0;
   margin-bottom: 1rem;
+}
+/* how to pay */
+.image3{
+  margin:10px 20%;
+}
+.image3 img{
+  width:100%
+}
+.image4{
+  margin:10px 10%;
+}
+.image4 img{
+  width:100%
+}
+.pushWidth{
+  margin : 5px 5%;
+}
+/* contact */
+.Contact{
+  margin: 10px 25%;
+  display:flex;
+  flex-direction:column;
+}
+.h1Contact{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 82px;
+  color: #000000;
+  margin: 0;
+}
+sup{
+color:red;
+}
+.formContact{
+  display: contents;
+}
+.labelContact{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 52px;
+  color: #000000;
+}
+.inputContact,
+.textareaContact{
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  height: 40px;
+  padding: 0 20px;
+}
+.textareaContact{
+  resize: none;
+  margin-bottom: 1rem;
+  height: 100px;
+}
+.submit{
+  display: flex;
+  justify-content: center;
 }

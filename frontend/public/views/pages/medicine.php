@@ -12,7 +12,7 @@
         Common Medications That Are Safe for Your Cat
     </h1>
 </div>
-<img class="coverImage" src="<?= URLROOT ?>layout/image/siteWebPages/t-1.svg" alt="cover">
+<img class="coverImage" src="<?= URLROOT ?>layout/image/siteWebPages/p-1.svg" alt="cover">
 <div class="h1">
     <h1>
         Other common medications

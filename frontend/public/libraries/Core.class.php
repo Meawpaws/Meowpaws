@@ -16,12 +16,19 @@ class Core
         require_once './libraries/Controllers.class.php';
 
         $url = $this->getUrl();
-        if (isset($url)) {
+        if (isset($url) && $url != 'admin') {
             if (file_exists('./views/' . ucwords($url) . '.php')) {
                 $this->view = ucwords($url);
                 unset($url);
             }
         }
+        if (isset($url) && $url == 'admin') {
+            if (file_exists('./views/' . ucwords($url).'/index.php')) {
+                $this->view = ucwords($url).'/index';
+                unset($url);
+            }
+        }
+
         //require the controller
         require_once './views/' . $this->view . '.php';
     }
