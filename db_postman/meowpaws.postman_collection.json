@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "8a1836c8-8597-46e8-a735-bddfd6639e2c",
+		"name": "meowpaws",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21091777"
+	},
+	"item": [
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "last 4 product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/meowpaws/backend/Products/last4Product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"meowpaws",
+								"backend",
+								"Products",
+								"last4Product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "select by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/meowpaws/backend/Products/view/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"meowpaws",
+								"backend",
+								"Products",
+								"view",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contact",
+			"item": [
+				{
+					"name": "add contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"marouane bouchettoy\", \r\n    \"email\": \"uanemaro216@gmail.com\", \r\n    \"number\": \"\", \r\n    \"message\": \"sqrf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/meowpaws/backend/Contacts/Insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"meowpaws",
+								"backend",
+								"Contacts",
+								"Insert"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
