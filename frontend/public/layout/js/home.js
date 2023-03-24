@@ -13,7 +13,7 @@ fetch(
 .then((data) => {
     var product = `<div class="products">`
     for (let i = 0; i < data.length; i++) {
-        product += `<a href="#">
+        product += `<a href="${URLROOT}pages/view?id=${data[i].id_p}">
         <img src="${URLROOT}layout/image/products/${data[i].imagePricipal}" alt="">
         </a>`
     }
