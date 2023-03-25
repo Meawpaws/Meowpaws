@@ -41,12 +41,16 @@ class Products extends Controller
         $productsImages_arr = $this->productModel->selectByIdProductImages($id);
         // Blog selectByIdStars query
         $selectByIdStars = $this->productModel->selectByIdStars($id);
-        // Get row count
-        $num = count($productsCategory_arr);        
         // Check if any Product
-        if ($num > 0) {
+        if ($productsCategory_arr != null) {
+            $productsCategory_arr = $productsCategory_arr[0];
+            $product = [
+                'info'=>$productsCategory_arr,
+                'images'=>$productsImages_arr,
+                'stars'=>$selectByIdStars
+            ];   
             // Turn to JSON & output
-            echo json_encode($selectByIdStars);
+            echo json_encode($product);
         } else {
             // No movies
             echo json_encode(

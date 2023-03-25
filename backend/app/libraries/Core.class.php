@@ -19,7 +19,7 @@ class Core
         require_once '../app/libraries/Database.class.php';
 
         $url = $this->getUrl();
-        
+         
         if (isset($url[0])) {
             if (file_exists('../app/controllers/' . ucwords($url[0]) . '.class.php')) {
                 $this->Controller = ucwords($url[0]);
