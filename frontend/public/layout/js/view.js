@@ -17,5 +17,4 @@ fetch(
 .then((res) => res.json())
 .then((data) => {
 console.log(data);
-    product.innerHTML = data['info'] + data['stars'] + data['images'][0] +data['images'][1]
     });
