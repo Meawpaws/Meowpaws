@@ -46,6 +46,14 @@
     }
     
 }
+@media (max-width:883px){
+    .banelCoverImage {
+        display: flex;
+        width: 56rem;
+        margin-top: 10px;
+        justify-content: center;
+    }
+}
 @media (max-width:768px){
     .coverImage2{
         height: 79vh;
