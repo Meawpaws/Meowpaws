@@ -2,13 +2,11 @@ const idKeyValue = window.location.search
 const idParam = new URLSearchParams(idKeyValue)
 const id = idParam.get('id')
 
-const imagesSeconds = document.getElementsByClassName("imagesSeconds")
-const pricipalImage = document.getElementsByClassName("pricipalImage")
-const infoForm = document.getElementsByClassName("infoForm")
-const descriptionItem = document.getElementsByClassName("descriptionItem")
-const reviews = document.getElementsByClassName("reviews")
-
-console.log(imagesSeconds,pricipalImage,infoForm,descriptionItem,reviews);
+var imagesSeconds = document.getElementById("imagesSeconds")
+var pricipalImage = document.getElementById("pricipalImage")
+var infoForm = document.getElementById("infoForm")
+var descriptionItem = document.getElementById("descriptionItem")
+var reviews = document.getElementById("reviews")
 
 var URLROOT = `http://localhost/Meowpaws/`
 fetch(
@@ -22,5 +20,17 @@ fetch(
 )
 .then((res) => res.json())
 .then((data) => {
-    
+    const info = data['info']
+    const images = data['images']
+    const stars = data['stars']
+    for (let i = 0; i < images.length; i++) {
+        const image = `<img class = "imageSecond" src ="${URLROOT}layout/image/Products/${images[i].image}">`
+        var divImageSeconder = document.createElement('div');
+        divImageSeconder.innerHTML = image;
+        imagesSeconds.append(divImageSeconder);
+    }
+    const imagePrincipal = `<img class = "imagePricipal" src ="${URLROOT}layout/image/Products/${info.imagePricipal}">`
+    var divImagePrincipal = document.createElement('div');
+    divImagePrincipal.innerHTML = imagePrincipal;
+    pricipalImage.append(divImagePrincipal);
     });

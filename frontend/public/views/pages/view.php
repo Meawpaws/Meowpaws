@@ -3,15 +3,15 @@
 <div id="product" class="productView">
     <div class ="imagesInfo">
         <div class ="images">
-            <div class = "imagesSeconds">
+            <div class = "imagesSeconds" id="imagesSeconds">
 
             </div>
-            <div class = "pricipalImage">
+            <div class = "pricipalImage" id="pricipalImage">
 
             </div>
         </div>
         <form id="infoForm">
-            <div class = "infoForm">
+            <div class = "infoForm" id="infoForm">
 
             </div>
             <span class ="submitFormProduct">
@@ -28,12 +28,12 @@
 </div>
 <div class = "titleDescriptionItem">
     <h1 class="titleItem">DESCRIPTION ITEM</h1>
-    <p class="descriptionItem">
+    <p class="descriptionItem" id="descriptionItem">
 
     </p>
 </div>
 <center><h1 class="titleItem">REVIEWS</h1></center>
-<div class = "reviews">
+<div class = "reviews" id="reviews">
 
 </div>
 <div class ="btnReview">

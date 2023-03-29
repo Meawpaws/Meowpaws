@@ -4,10 +4,18 @@
     <div class ="imagesInfo">
         <div class ="images">
             <div class = "imagesSeconds">
-                <img class = "imageSecond" src ="<?= URLROOT ?>layout/image/Products/i-1.svg">
-                <img class = "imageSecond" src ="<?= URLROOT ?>layout/image/Products/i-2.svg">
-                <img class = "imageSecond" src ="<?= URLROOT ?>layout/image/Products/i-3.svg">
-                <img class = "imageSecond" src ="<?= URLROOT ?>layout/image/Products/i-1.svg">
+                <div>
+                    <img class = "imageSecond" src ="<?= URLROOT ?>layout/image/Products/i-1.svg">
+                </div>
+                <div>
+                    <img class = "imageSecond" src ="<?= URLROOT ?>layout/image/Products/i-2.svg">
+                </div>
+                <div>
+                    <img class = "imageSecond" src ="<?= URLROOT ?>layout/image/Products/i-3.svg">
+                </div>
+                <div>
+                    <img class = "imageSecond" src ="<?= URLROOT ?>layout/image/Products/i-1.svg">
+                </div>
             </div>
             <div class = "pricipalImage">
                 <img class = "imagePricipal" src ="<?= URLROOT ?>layout/image/Products/i-2.svg">
