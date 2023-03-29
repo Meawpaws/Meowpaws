@@ -10,7 +10,7 @@
 
             </div>
         </div>
-        <form id="infoForm">
+        <form id="Form">
             <div class = "infoForm" id="infoForm">
 
             </div>

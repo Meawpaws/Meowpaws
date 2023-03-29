@@ -559,7 +559,7 @@ color:red;
   width: 20rem;
   height: 20rem;
 }
-.infoForm{
+.infoForm div{
     display: flex;
     flex-direction: column;
     gap: 10px;
