@@ -540,7 +540,8 @@ color:red;
     flex-direction: column;
     gap: 10px;
 }
-.imageSecond{
+.imageSecond,
+.imageReview{
     height: 70px;
     width: 70px;
     border: 1px solid black !important;
@@ -587,12 +588,15 @@ color:red;
 .nameProductStars input{
   width: auto;
 }
-.stars{display: flex;flex-direction: row;gap: 5px;align-items: center;}
+.stars{
+  display: flex;flex-direction: row;gap: 5px;align-items: center;
+}
 .valueStar{
     opacity: 0.33;
 }
 .star{
     width: 19px;
+    opacity: 0.33;
 }
 .submitFormProduct{
     display: flex;
@@ -635,7 +639,8 @@ color:red;
 .banelCoverImage img{
     width: 25rem;
 }
-.titleDescriptionItem{
+.titleDescriptionItem,
+.reviews{
     width: 60%;
     margin: 0 20%;
 }
@@ -647,7 +652,8 @@ color:red;
     line-height: 244.5%;
     color: #000000;
 }
-.descriptionItem{
+.descriptionItem,
+.review{
     background: #FFFFFF;
     border: 1px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -655,4 +661,35 @@ color:red;
     padding: 10px 15px;
     margin: 0;
     margin-bottom: 1rem;
+}
+.imageReview{
+  border-radius: 100%;
+}
+.star2{
+  width: 19px;
+}
+.personReview{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btnReview{
+  display: flex;
+  flex-direction: row;
+  justify-content:center
+}
+.btnReview a{
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 43px;
+  line-height: 68px;
+  background: #00FFD1;
+  border: 1px solid #FFE1E1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  padding: 0px 15px;
+  margin-bottom :10px;
 }
