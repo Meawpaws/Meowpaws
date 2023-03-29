@@ -2,9 +2,11 @@
 class Products extends Controller
 {
     private $productModel;
+    private $commentStarModel;
     public function __construct()
     {
         $this->productModel = $this->model('Product');
+        $this->commentStarModel = $this->model('CommentStar');
     }
     public function last4Product()
     {
@@ -41,13 +43,16 @@ class Products extends Controller
         $productsImages_arr = $this->productModel->selectByIdProductImages($id);
         // Blog selectByIdStars query
         $selectByIdStars = $this->productModel->selectByIdStars($id);
+        // Blog selectByProductId query
+        $selectByProductId = $this->commentStarModel->selectByProductId($id);
         // Check if any Product
         if ($productsCategory_arr != null) {
             $productsCategory_arr = $productsCategory_arr[0];
             $product = [
                 'info'=>$productsCategory_arr,
                 'images'=>$productsImages_arr,
-                'stars'=>$selectByIdStars
+                'stars'=>$selectByIdStars,
+                'comment'=>$selectByProductId
             ];   
             // Turn to JSON & output
             echo json_encode($product);

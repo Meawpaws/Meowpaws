@@ -24,6 +24,8 @@ fetch(
     const info = data['info']
     const images = data['images']
     const stars = data['stars']
+    const comment = data['comment']
+    console.log(data);
     for (let i = 0; i < images.length; i++) {
         const image = `<img class = "imageSecond" src ="${URLROOT}layout/image/Products/${images[i].image}">`
         var divImageSeconder = document.createElement('div');
@@ -59,4 +61,25 @@ fetch(
 
     const itemDescription = `${info.description}`
     descriptionItem.innerHTML = itemDescription;
+
+    var ReviewOne =``
+    for (let i = 0; i < comment.length; i++) {
+        ReviewOne +=`<div class = "ReviewOne">
+                        <h1 class="personReview">
+                            <img class = "imageReview" src ="${URLROOT}layout/image/profile/avatar.png">
+                            ${comment[i].username}
+                            <div class ="starReview">`
+                            for (let j = 0; j < comment[i].star; j++) {
+                                ReviewOne +=`<img class = "star2" src ="${URLROOT}layout/image/star.svg">`
+                            }
+                ReviewOne +=`</div>
+                        </h1>
+                        <p class="review">
+                        ${comment[i].comment}
+                        </p>
+                    </div>`
+    }
+    var divReviews = document.createElement('div');
+    divReviews.innerHTML = ReviewOne;
+    reviews.append(divReviews);
     });

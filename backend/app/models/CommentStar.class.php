@@ -60,4 +60,11 @@ class CommentStar
         $row = $this->db->fetch();
         return $row;
     }
+        public function selectByProductId($id)
+    {
+        $this->db->query("SELECT * FROM `commentstar` cs, `users` us WHERE cs.id_u = us.id_u AND cs.id_p = :id");
+        $this->db->bind(':id',$id);
+        $row = $this->db->fetchAll();
+        return $row;
+    }
 }
