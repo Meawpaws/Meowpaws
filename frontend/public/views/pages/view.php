@@ -15,8 +15,8 @@
 
             </div>
             <span class ="submitFormProduct">
-                <input class="cart" type="submit" onclick="addCart()" value = "add to cart" name = "cart">
-                <input class="buy" type="submit" onclick="buyNow()" value = "buy now" name = "buy">
+                <input class="cart" type="submit" id="addCart" value = "add to cart" name = "cart">
+                <input class="buy" type="submit" id="buyNow" value = "buy now" name = "buy">
             </span>
         </form>
     </div>

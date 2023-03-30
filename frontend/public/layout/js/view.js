@@ -8,6 +8,11 @@ var infoForm = document.getElementById("infoForm")
 var descriptionItem = document.getElementById("descriptionItem")
 var reviews = document.getElementById("reviews")
 var formProduct = document.getElementById("Form")
+var addCart = document.getElementById("addCart")
+var buyNow = document.getElementById("buyNow")
+
+// const id_user = localStorage.getItem("ID_USER");
+const id_user = 1
 
 var URLROOT = `http://localhost/Meowpaws/`
 fetch(
@@ -25,7 +30,6 @@ fetch(
     const images = data['images']
     const stars = data['stars']
     const comment = data['comment']
-    console.log(data);
     for (let i = 0; i < images.length; i++) {
         const image = `<img class = "imageSecond" src ="${URLROOT}layout/image/Products/${images[i].image}">`
         var divImageSeconder = document.createElement('div');
@@ -39,6 +43,7 @@ fetch(
     pricipalImage.append(divImagePrincipal);
 
     var Form =`<input type="hidden" value= "${info.id_p}" name ="id_product">
+                <input type="hidden" value= "${id_user}" name ="id_user">
                 <span class="inputProductView nameProductStars">
                     <input type="text" readonly value= "Name : ${info.pname}" name ="name_product">
                 <span class = stars>
@@ -82,4 +87,15 @@ fetch(
     var divReviews = document.createElement('div');
     divReviews.innerHTML = ReviewOne;
     reviews.append(divReviews);
-    });
+
+    addCart.addEventListener('click', event => {
+        event.preventDefault();
+        if (!id_user || id_user == "null" || id_user == "undefined") {
+            location.replace("../users/login");
+        } else {
+            const formData = new FormData(formProduct);
+            const data = Object.fromEntries(formData);
+            console.log(data)
+        }
+    })
+})
