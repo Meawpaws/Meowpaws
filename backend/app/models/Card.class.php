@@ -6,11 +6,13 @@ class Card
     {
         $this->db = new Database;
     }
-    public function Add($id_u,$id_p)
+    public function Add($id_user,$id_product,$price,$quantity_product)
     {
-        $this->db->query('INSERT INTO `card`(`id_u`, `id_p`) VALUES (:id_u,:id_p)');
-        $this->db->bind(':id_u',$id_u);
-        $this->db->bind(':id_p',$id_p);
+        $this->db->query('INSERT INTO `card`(`id_u`, `id_p`, `price`, `quantité`) VALUES (:id_user,:id_product,:price,:quantity_product)');
+        $this->db->bind(':id_user',$id_user);
+        $this->db->bind(':id_product',$id_product);
+        $this->db->bind(':price',$price);
+        $this->db->bind(':quantity_product',$quantity_product);
         if ($this->db->execute())
             return true;
         else

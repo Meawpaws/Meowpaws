@@ -26,6 +26,14 @@ class Cards extends Controller
         $price = $price_arr2[1];
         $price = $price * $quantity_product;
         
-        var_dump($id_user,$id_product,$price,$quantity_product);
+        if($this->cartModel->Add($id_user,$id_product,$price,$quantity_product)) {
+            echo json_encode(
+            array('message' => 'Added To Card')
+            );
+        } else {
+            echo json_encode(
+            array('message' => 'Didn\'t Add To Card')
+            );
+        }
     }
 }
