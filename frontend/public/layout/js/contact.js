@@ -1,4 +1,4 @@
-var form = document.querySelector('.formContact')
+var form = document.querySelector('.form')
 var URLROOT = `http://localhost/Meowpaws/`
 form.addEventListener('submit', event => {
     event.preventDefault();

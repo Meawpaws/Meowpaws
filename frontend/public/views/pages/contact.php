@@ -2,7 +2,7 @@
 <?php include_once './views/inc/navbarUser.inc.php' ?>
 <div class = "Contact">
     <h1 class = "h1Contact">DROP US A LINE</h1>
-    <form class = "formContact" method = "post">
+    <form class = "form" method = "post">
         <label class = "labelContact">Your Name <sup>*</sup></label>
         <input type ="text" class = "inputContact" Name="name" required>
         <label class = "labelContact">Your Email <sup>*</sup></label>

@@ -26,6 +26,9 @@ fetch(`http://localhost/meowpaws/backend/products/view/${id}`, {
     const images = data["images"];
     const stars = data["stars"];
     const comment = data["comment"];
+    
+    localStorage.setItem("ID_PRODUCT",info.id_p);
+    
     for (let i = 0; i < images.length; i++) {
       const image = `<img class = "imageSecond" src ="${URLROOT}layout/image/Products/${images[i].image}">`;
       var divImageSeconder = document.createElement("div");
@@ -101,11 +104,6 @@ fetch(`http://localhost/meowpaws/backend/products/view/${id}`, {
           .then((res) => res.json())
           .then((data) => {
             console.log(data.message);
-            if (data.message == "Added To Card") {
-                location.replace(`${URLROOT}pages/Card`);
-            } else {
-                location.replace(`${URLROOT}pages/view?id=${data.id_product}`);
-            }
           });
       }
     });
