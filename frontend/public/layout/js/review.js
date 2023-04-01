@@ -1,6 +1,7 @@
-const id_user = localStorage.getItem("ID_USER");
+// const id_user = localStorage.getItem("ID_USER");
+const id_user = 1;
 const id_product = localStorage.getItem("ID_PRODUCT");
-console.log(id_user)
+
 
 var fileInput = document.getElementById('file-input');
 var fileButton = document.getElementById('file-button');
@@ -15,3 +16,26 @@ fileInput.addEventListener('change', function() {
   var buttonText = numFiles + ' fichier(s) sélectionné(s)';
   p.innerHTML = buttonText;
 });
+
+var form = document.getElementById('form');
+if (!id_user || id_user == "null" || id_user == "undefined") {
+  location.replace("../users/login");
+} else {
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+  fetch("http://localhost/meowpaws/backend/Cards/Insert", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.message == "Review Added") {
+        location.replace(URLROOT);
+    } else {
+        location.replace(`${URLROOT}pages/review`);
+    }
+    });
+}

@@ -6,14 +6,24 @@
             <img src = "<?= URLROOT ?>layout/image/profile/avatar.png" class="imageReview">
             <span class = "nameUserReview">marouane</span>
         </span>
-        <form class = "form" method = "post">
+        <form class = "form" id="form">
             <label class = "labelContact">Your Review</label>
-            <textarea class = "textareaContact" Name="message"></textarea>
+            <textarea class = "textareaContact" Name="message" required="required"></textarea>
             <label class = "labelContact">Your Images</label>
-            <input type="file" id="file-input" multiple style="display : none;">
+            <input type="file" id="file-input" accept="image/*" multiple style="display : none;">
             <div class="inputContact imageInput">
                 <button type="button" id="file-button" class="imageFile">Add Images</button>
                 <p id ="p_file_image" class="p_file_image"></p>
+            </div>
+            <div class="starsReviews">
+                <select name="stars" class = "starsSelect" required="required" id="starsReviews">
+                    <option selected disabled>Stars</option>
+                    <option value="1"class ="star3">&#9733;</option>
+                    <option value="2"class ="star3">&#9733;&#9733;</option>
+                    <option value="3"class ="star3">&#9733;&#9733;&#9733;</option>
+                    <option value="4"class ="star3">&#9733;&#9733;&#9733;&#9733;</option>
+                    <option value="5"class ="star3">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                </select>
             </div>
             <div class ="submit">
                 <input type="submit" value = "SEND" class = "btnAll">

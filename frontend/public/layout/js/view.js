@@ -57,11 +57,21 @@ fetch(`http://localhost/meowpaws/backend/products/view/${id}`, {
                     <input type="text" readonly value= "Category : ${info.cname}" name ="category_product">
                 </span>
                 <span class="inputProductView">
-                    <input type="number" value= "1" name ="quantity_product">
+                    <input type="number" value= "1" name ="quantity_product" id="quantity_product">
                 </span>`;
+          
+                
     var divForm = document.createElement("div");
     divForm.innerHTML = Form;
     infoForm.append(divForm);
+    
+    var quantity_product = document.getElementById("quantity_product");
+
+    quantity_product.addEventListener("input", function () {
+      if (quantity_product.value<1) {
+        quantity_product.value=1
+      }
+    });
 
     const itemDescription = `${info.description}`;
     descriptionItem.innerHTML = itemDescription;

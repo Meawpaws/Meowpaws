@@ -338,10 +338,10 @@ img.medicin {
 
 .btnAll {
   margin-bottom: 30px;
-  padding: 6px 15px;
   background: rgba(0, 0, 0, 0.64);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+  padding: 0 10px;
   font-family: 'Poppins';
   font-size: 23px;
   color: #FFFFFF !important;
@@ -495,7 +495,7 @@ color:red;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
-  font-size: 23px;
+  font-size: 17px;
   line-height: 52px;
   color: #000000;
 }
@@ -664,7 +664,9 @@ color:red;
     margin-bottom: 1rem;
 }
 .imageReview{
+  height: 3rem;
   border-radius: 100%;
+  width: 3rem;
 }
 .star2{
   width: 19px;
@@ -695,7 +697,17 @@ color:red;
   margin-bottom :10px;
 }
 /* review || comment */
-.nameUserReview{}
+.userReview{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nameUserReview{
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-size: larger;
+}
 .imageFile{
     background: #00FFD1;
     border: 1px solid #FFE1E1;
@@ -709,4 +721,20 @@ color:red;
 }
 .p_file_image{
   margin: 0 15px;
+}
+.starsReviews{
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+.starsSelect{
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-style: italic;
+  font-size: larger;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.star3{
+  color: #ffd400;
 }
