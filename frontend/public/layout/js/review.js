@@ -18,24 +18,27 @@ fileInput.addEventListener('change', function() {
 });
 
 var form = document.getElementById('form');
-if (!id_user || id_user == "null" || id_user == "undefined") {
-  location.replace("../users/login");
-} else {
-  const formData = new FormData(form);
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (!id_user || id_user == "null" || id_user == "undefined") {
+    location.replace("../users/login");
+  } else {
+    const formData = new FormData(form);
   const data = Object.fromEntries(formData);
-  fetch("http://localhost/meowpaws/backend/Cards/Insert", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.message == "Review Added") {
-        location.replace(URLROOT);
-    } else {
-        location.replace(`${URLROOT}pages/review`);
-    }
-    });
-}
+  console.log(data);
+  // fetch("http://localhost/meowpaws/backend/CommentStars/Insert", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(data),
+  // })
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     if (data.message == "Review Added") {
+  //       location.replace(URLROOT);
+  //   } else {
+  //       location.replace(`${URLROOT}pages/review`);
+  //   }
+// });
+  }})

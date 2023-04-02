@@ -8,9 +8,9 @@
         </span>
         <form class = "form" id="form">
             <label class = "labelContact">Your Review</label>
-            <textarea class = "textareaContact" Name="message" required="required"></textarea>
+            <textarea class = "textareaContact" name="message" required="required"></textarea>
             <label class = "labelContact">Your Images</label>
-            <input type="file" id="file-input" accept="image/*" multiple style="display : none;">
+            <input type="file" id="file-input" name="file[]" accept="image/*" multiple style="display : none;">
             <div class="inputContact imageInput">
                 <button type="button" id="file-button" class="imageFile">Add Images</button>
                 <p id ="p_file_image" class="p_file_image"></p>
