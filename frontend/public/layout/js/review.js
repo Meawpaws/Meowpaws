@@ -25,20 +25,28 @@ form.addEventListener("submit", (event) => {
   } else {
     const formData = new FormData(form);
   const data = Object.fromEntries(formData);
-  console.log(data);
-  // fetch("http://localhost/meowpaws/backend/CommentStars/Insert", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(data),
-  // })
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     if (data.message == "Review Added") {
-  //       location.replace(URLROOT);
-  //   } else {
-  //       location.replace(`${URLROOT}pages/review`);
-  //   }
-// });
+  var images = formData.getAll('file')
+    if (images != 'undefined' || images != 'none' || images != ' ' ||images != '' || images != NONE   ){
+      delete data.file;
+      data.file = images
+    }else{
+      data.file = ''
+    }
+  console.log(data)
+  }
+  fetch("http://localhost/meowpaws/backend/CommentStars/Insert", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.message == "Review Added") {
+        location.replace(URLROOT);
+    } else {
+        location.replace(`${URLROOT}pages/review`);
+    }
+});
   }})

@@ -1,29 +1,42 @@
 <?php include_once './views/inc/header.inc.php' ?>
 <?php include_once './views/inc/navbarUser.inc.php' ?>
-<div class="reviews">
-    <div class="commentReview">
-        <form>
-            <input type="file" id="file-input" multiple style="display : none;">
-            <div class="inputContact imageInput">
-                <button type="button" id="file-button" class="imageFile">Add Images</button>
-                <p id ="p_file_image" class="p_file_image"></p>
-            </div>
-        </form>
-    </div>
-</div>
+
+<input type="file" id="imageInput" multiple>
+<button onclick="displayImages()">Afficher les images</button>
+
+<div id="imageContainer"></div>
+
 <script>
-var fileInput = document.getElementById('file-input');
-var fileButton = document.getElementById('file-button');
-var p = document.getElementById('p_file_image');
+  function displayImages() {
+  const input = document.getElementById('imageInput');
+  const container = document.getElementById('imageContainer');
+  
+  // Récupération des fichiers sélectionnés
+  const files = input.files;
+  
+  // Parcours des fichiers et affichage des images
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    
+    // Vérification que le fichier est une image
+    if (!file.type.startsWith('image/')) {
+      continue;
+    }
+    
+    // Création d'un élément image
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(file);
+    
+    // Affichage de l'image dans le conteneur
+    container.appendChild(img);
+  }
+}
 
-fileButton.addEventListener('click', function() {
-  fileInput.click();
-});
 
-fileInput.addEventListener('change', function() {
-  var numFiles = fileInput.files.length;
-  var buttonText = numFiles + ' fichier(s) sélectionné(s)';
-  p.innerHTML = buttonText;
-});
+const tableau = {nom: "Jean", age: 30, ville: "Paris"};
+
+for (const [key, value] of Object.entries(tableau)) {
+  console.log(`${key} : ${value}`);
+}
 </script>
 <?php include_once './views/inc/footer.inc.php' ?>
