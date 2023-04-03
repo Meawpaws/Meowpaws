@@ -11,7 +11,12 @@ class CommentStar
         $this->db->query('INSERT INTO `picturescommentstar`(`image`, `id_cs`) VALUES (:image,:id_cs)');
         $this->db->bind(':id_cs',$id_cs);
         $this->db->bind(':image',$image);
-        $this->db->execute();
+        if ($this->db->execute()) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     public function add($comment,$star,$id_u,$id_p,$image = [])
     {
@@ -27,7 +32,7 @@ class CommentStar
         $id_cs = $row->id_cs;
 
         for ($i=0; $i < count($image); $i++) { 
-            $this->addImage($id_cs,$image[$i]);
+            $this->addImage($id_cs,$image[$i]->name);
         }
     }
     public function update($sql)

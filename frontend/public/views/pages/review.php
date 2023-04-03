@@ -7,6 +7,8 @@
             <span class = "nameUserReview">marouane</span>
         </span>
         <form class = "form" id="form">
+            <input type = "hidden" name="id_user" id="id_user_form"> 
+            <input type = "hidden" name="id_produit" id="id_produit"> 
             <label class = "labelContact">Your Review</label>
             <textarea class = "textareaContact" name="message" required="required"></textarea>
             <label class = "labelContact">Your Images</label>
