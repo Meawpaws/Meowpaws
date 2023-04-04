@@ -34,6 +34,7 @@ class CommentStar
         for ($i=0; $i < count($image); $i++) { 
             $this->addImage($id_cs,$image[$i]->name);
         }
+        return true;
     }
     public function update($sql)
     {

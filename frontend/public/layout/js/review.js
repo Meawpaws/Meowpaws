@@ -51,9 +51,9 @@ form.addEventListener("submit", (event) => {
       .then((data) => {
         console.log(data);
         if (data.message == "Review Added") {
-          // location.replace(URLROOT);
+          location.replace(URLROOT);
         } else {
-          // location.replace(`${URLROOT}pages/review`);
+          location.replace(`${URLROOT}pages/review`);
         }
       });
   }

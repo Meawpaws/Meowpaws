@@ -21,11 +21,11 @@ class CommentStars extends Controller
         $file = $data->file;
         if($this->commentStarModel->add($message,$stars,$id_user,$id_produit,$file)) {
             echo json_encode(
-            array('message' => 'Didn\'t Review Added')
+            array('message' => 'Review Added')
             );
         } else {
             echo json_encode(
-            array('message' => 'Review Added')
+            array('message' => 'Didn\'t Review Added')
             );
         }
     }
