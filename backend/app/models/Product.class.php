@@ -42,7 +42,7 @@ class Product
     }
     public function selectAll()
     {
-        $this->db->query("SELECT * FROM `product` po, `category` ca, `picturesproduct` pp WHERE po.id_c = ca.id_c AND po.id_p = pp.id_p");
+        $this->db->query("SELECT * FROM `product`");
         $row = $this->db->fetchAll();
         return $row;
     }
