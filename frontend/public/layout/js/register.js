@@ -1,10 +1,13 @@
 var login = document.getElementById('register')
 var email = document.getElementById('email')
 var password = document.getElementById('password')
-var nameUser = document.getElementById('namz')
+var nameUser = document.getElementById('name')
 var errorEmail = document.getElementById('error_email')
 var errorPassword = document.getElementById('error_password')
 var errorName = document.getElementById('error_name')
+
+var URLROOT = `http://localhost/Meowpaws/`
+
 login.addEventListener('submit', (event) => {
     const formData = new FormData(login);
     const data = Object.fromEntries(formData);
@@ -28,13 +31,14 @@ login.addEventListener('submit', (event) => {
         errorPassword.innerHTML = error_Password
         password.classList += 'form-control form-control-lg is-invalid'
     }
-    if (data.name == ' ' || !data.password) {
+    if (data.username == ' ' || !data.username) {
         error_Name = 'Empty Nameerror_Name'
         errorName.innerHTML = error_Name
         nameUser.classList += 'form-control form-control-lg is-invalid'
     }
-    event.preventDefault()
     if ((error_Password == ' ' || !error_Password) && (error_Email || !error_Email) && (error_Name || !error_Name)) {
+      event.preventDefault()
+      console.log('object');
       fetch("http://localhost/meowpaws/backend/Users/login", {
         method: "POST",
         headers: {
@@ -42,7 +46,6 @@ login.addEventListener('submit', (event) => {
         },
         body: JSON.stringify(data),
       })
-      console.log(data)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -53,7 +56,5 @@ login.addEventListener('submit', (event) => {
             location.replace(`${URLROOT}users/login`);
           }
         });
-    } else {
-      location.replace(`${URLROOT}users/login`);
     }
 })

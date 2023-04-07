@@ -3,6 +3,9 @@ var email = document.getElementById('email')
 var password = document.getElementById('password')
 var errorEmail = document.getElementById('errorEmail')
 var errorPassword = document.getElementById('errorPassword')
+
+var URLROOT = `http://localhost/Meowpaws/`
+
 login.addEventListener('submit', (event) => {
     const formData = new FormData(login);
     const data = Object.fromEntries(formData);
@@ -25,25 +28,22 @@ login.addEventListener('submit', (event) => {
     }
     event.preventDefault()
     if ((error_Password == ' ' || !error_Password) && (error_Email || !error_Email)) {
-      fetch("http://localhost/meowpaws/backend/Users/login", {
-        method: "POST",
+      fetch('http://localhost/meowpaws/backend/Users/login', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data),
-      })
-      console.log(data)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.message == "Account Susses") {
-            localStorage.setItem("ID_USER",data.result.id_u);
-            location.replace(URLROOT);
-          } else {
-            location.replace(`${URLROOT}users/login`);
-          }
-        });
-    } else {
-      location.replace(`${URLROOT}users/login`);
+        body: JSON.stringify(data)
+    }).then(res => res.json())
+        .then(data => {
+            console.log(data.message);
+            if (data.message == "Account Susses") {
+              localStorage.setItem("ID_USER",data.result.id_u);
+              location.replace(URLROOT);
+            } else {
+                location.replace(`${URLROOT}users/login`);
+            }
+        })
     }
 })
+
