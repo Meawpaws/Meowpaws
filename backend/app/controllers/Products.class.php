@@ -30,7 +30,7 @@ class Products extends Controller
             );
         }
     }
-    public function AllByCategory($categoryId)
+    public function AllByCategory($category)
     {
         header('Access-Control-Allow-Origin:*');
         header('Content-Type: application/json');
@@ -38,7 +38,7 @@ class Products extends Controller
         header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
         
         // Blog selectLast4Product query
-        $products_arr = $this->productModel->selectAll();
+        $products_arr = $this->productModel->selectByCategory($category);
         // Get row count
         $num = count($products_arr);        
         // Check if any Product

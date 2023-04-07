@@ -58,6 +58,13 @@ class Product
         $this->db->bind(':id',$id);
         $row = $this->db->fetchAll();
         return $row;
+    } 
+    public function selectByCategory($cname)
+    {
+        $this->db->query("SELECT * FROM `product` po, `category` ca WHERE po.id_c = ca.id_c AND ca.cname = :cname");
+        $this->db->bind(':cname',$cname);
+        $row2 = $this->db->fetchAll();
+        return $row2;
     }   
     public function selectByIdProductImages($id)
     {

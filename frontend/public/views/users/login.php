@@ -4,11 +4,11 @@
             <div class="card card-body p-3">
                 <h2>Create Account</h2>
                 <span class="mb-2">*Please fill all the information to Create your Account</span>
-                <form action="<?= URLROOT ?>users/login" method="POST">
+                <form id="login">
                     <!-- email input -->
                     <div class="form-group">
                         <span for="email">Email<sup>*</sup></span>
-                        <input type="text" name="email" value="<?=$data['email']?>" class="form-control form-control-lg <?= (!empty($data['email_err']) ? 'is-invalid' : '') ?>">
+                        <input type="text" name="email" class="form-control form-control-lg <?= (!empty($data['email_err']) ? 'is-invalid' : '') ?>">
                         <span class="invalid-feedback"><?= $data['email_err'] ?></span>
                     </div>
                     <!-- password input -->
