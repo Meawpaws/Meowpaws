@@ -5,30 +5,24 @@
             <div class="card card-body p-3">
                 <h2>Create Account</h2>
                 <span class="mb-2">*Please fill all the information to Create your Account</span>
-                <form action="<?= URLROOT ?>users/register" method="POST">
+                <form id="register">
                     <!-- name input -->
                     <div class="form-group">
                         <span for="name">Name<sup>*</sup></span>
-                        <input type="text" name="username" value="<?=$data['name']?>" class="form-control form-control-lg <?= (!empty($data['name_err']) ? 'is-invalid' : '') ?>">
-                        <span class="invalid-feedback"><?= $data['name_err'] ?></span>
+                        <input type="text" name="username" id="name" class="form-control form-control-lg">
+                        <span class="invalid-feedback" id="error_name"></span>
                     </div>
                     <!-- email input -->
                     <div class="form-group">
                         <span for="email">Email<sup>*</sup></span>
-                        <input type="text" name="email" value="<?=$data['email']?>" class="form-control form-control-lg <?= (!empty($data['email_err']) ? 'is-invalid' : '') ?>">
-                        <span class="invalid-feedback"><?= $data['email_err'] ?></span>
+                        <input type="email" name="email" id='email' class="form-control form-control-lg">
+                        <span class="invalid-feedback" id='error_email'></span>
                     </div>
                     <!-- password input -->
                     <div class="form-group">
                         <span for="password">Password<sup>*</sup></span>
-                        <input type="password" name="password" value="<?=$data['password']?>" class="form-control form-control-lg <?= (!empty($data['password_err']) ? 'is-invalid' : '') ?>">
-                        <span class="invalid-feedback"><?= $data['password_err'] ?></span>
-                    </div>
-                    <!-- password-confirm input -->
-                    <div class="form-group">
-                        <span for="confirm-password">Password confirm<sup>*</sup></span>
-                        <input type="password" name="userConfirmPassword" value="<?=$data['confirm-password']?>" class="form-control form-control-lg <?= (!empty($data['confirm-password_err']) ? 'is-invalid' : '') ?>">
-                        <span class="invalid-feedback"><?= $data['confirm-password_err'] ?></span>
+                        <input type="password" name="password" id='password' class="form-control form-control-lg">
+                        <span class="invalid-feedback" id='error_password'></span>
                     </div>
                     <div>
                         <input type="submit" value="Register" class="btn btn-success">
@@ -38,4 +32,5 @@
             </div>
         </div>
     </div>
+    <script src="<?= URLROOT ?>layout/js/register.js"></script>
 <?php include_once './views/inc/footer.inc.php' ?>
