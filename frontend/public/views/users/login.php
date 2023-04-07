@@ -9,14 +9,14 @@
                     <!-- email input -->
                     <div class="form-group">
                         <span for="email">Email<sup>*</sup></span>
-                        <input type="text" name="email" class="form-control form-control-lg">
-                        <span class="invalid-feedback" id="email"></span>
+                        <input type="text" name="email" class="form-control form-control-lg" id="email">
+                        <span class="invalid-feedback" id="errorEmail"></span>
                     </div>
                     <!-- password input -->
                     <div class="form-group">
                         <span for="password">Password<sup>*</sup></span>
-                        <input type="password" name="password" class="form-control form-control-lg">
-                        <span class="invalid-feedback" id="password"></span>
+                        <input type="password" name="password" class="form-control form-control-lg" id="password">
+                        <span class="invalid-feedback" id="errorPassword"></span>
                     </div>
                     <div>
                         <input type="submit" value="Log In" class="btn btn-primary">
@@ -26,5 +26,5 @@
             </div>
         </div>
     </div>
+    <script src="<?= URLROOT ?>layout/js/login.js"></script>
 <?php include_once './views/inc/footer.inc.php' ?>
-<!-- is-invalid -->
