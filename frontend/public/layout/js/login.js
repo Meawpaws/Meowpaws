@@ -24,21 +24,26 @@ login.addEventListener('submit', (event) => {
         password.classList += 'form-control form-control-lg is-invalid'
     }
     event.preventDefault()
-    fetch("http://localhost/meowpaws/backend/Users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-    console.log(data)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.message == "Account Susses") {
-          location.replace(URLROOT);
-        } else {
-          location.replace(`${URLROOT}users/login`);
-        }
-      });
+    if ((data.password == ' ' || !data.password) && (data.email == ' ' || !data.email)) {
+      fetch("http://localhost/meowpaws/backend/Users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+      console.log(data)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.message == "Account Susses") {
+            localStorage.setItem("ID_USER",data.result.id_u);
+            location.replace(URLROOT);
+          } else {
+            location.replace(`${URLROOT}users/login`);
+          }
+        });
+    } else {
+      location.replace(`${URLROOT}users/login`);
+    }
 })

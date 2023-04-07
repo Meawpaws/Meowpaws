@@ -42,8 +42,12 @@ class Users extends Controller {
         $email = $data->email;
         $password = $data->password;
         if($this->userModel->login($email,$password)) {
+            $row = $this->userModel->getUserByEmail($email);
             echo json_encode(
-            array('message' => 'Account Susses')
+            array(
+                'message' => 'Account Susses',
+                'result' => $row
+            )
             );
         } else {
             echo json_encode(

@@ -11,8 +11,8 @@ class User extends AdminUser
         $this->db->query("SELECT * FROM users WHERE email = :email");
         $this->db->bind(":email", $email);
         $this->db->execute();
-        if ($this->db->rowCount())
-            return true;
+        if ($this->db->fetch())
+            return $this->db->fetch();
         else
             return false;
     }
@@ -35,7 +35,7 @@ class User extends AdminUser
         $row = $this->db->fetch();
         $hashed_password = $row->password;
         if (password_verify($password, $hashed_password)) {
-            return $row;
+            return true;
         } else {
             return false;
         }
