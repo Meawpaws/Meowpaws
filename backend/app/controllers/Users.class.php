@@ -55,13 +55,4 @@ class Users extends Controller {
             );
         }
     }
-    // logout
-
-    public function logout()
- {
-        $_SESSION[ 'users_id' ] = null;
-        $_SESSION[ 'name' ] = null;
-        session_destroy();
-        redirect( 'users/login' );
-    }
 }
