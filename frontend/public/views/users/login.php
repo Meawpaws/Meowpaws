@@ -9,7 +9,7 @@
                     <!-- email input -->
                     <div class="form-group">
                         <span for="email">Email<sup>*</sup></span>
-                        <input type="text" name="email" class="form-control form-control-lg" id="email">
+                        <input type="email" name="email" class="form-control form-control-lg" id="email">
                         <span class="invalid-feedback" id="errorEmail"></span>
                     </div>
                     <!-- password input -->

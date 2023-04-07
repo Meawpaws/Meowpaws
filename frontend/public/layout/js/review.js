@@ -1,5 +1,4 @@
-// const id_user = localStorage.getItem("ID_USER");
-const id_user = 1;
+const id_user = localStorage.getItem("ID_USER");
 const id_product = localStorage.getItem("ID_PRODUCT");
 
 var id_user_form = document.getElementById('id_user_form');
