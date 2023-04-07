@@ -1,4 +1,5 @@
-<?php include_once APPROOT . '/views/inc/header.inc.php' ?>
+<?php include_once './views/inc/header.inc.php' ?>
+<?php include_once './views/inc/navbarUser.inc.php' ?>
     <div class="row">
         <div class="col-md-6 mx-auto mt-4">
             <div class="card card-body p-3">
@@ -8,14 +9,14 @@
                     <!-- email input -->
                     <div class="form-group">
                         <span for="email">Email<sup>*</sup></span>
-                        <input type="text" name="email" class="form-control form-control-lg <?= (!empty($data['email_err']) ? 'is-invalid' : '') ?>">
-                        <span class="invalid-feedback"><?= $data['email_err'] ?></span>
+                        <input type="text" name="email" class="form-control form-control-lg">
+                        <span class="invalid-feedback" id="email"></span>
                     </div>
                     <!-- password input -->
                     <div class="form-group">
                         <span for="password">Password<sup>*</sup></span>
-                        <input type="password" name="password" value="<?=$data['password']?>" class="form-control form-control-lg <?= (!empty($data['password_err']) ? 'is-invalid' : '') ?>">
-                        <span class="invalid-feedback"><?= $data['password_err'] ?></span>
+                        <input type="password" name="password" class="form-control form-control-lg">
+                        <span class="invalid-feedback" id="password"></span>
                     </div>
                     <div>
                         <input type="submit" value="Log In" class="btn btn-primary">
@@ -25,4 +26,5 @@
             </div>
         </div>
     </div>
-<?php include_once APPROOT . '/views/inc/footer.inc.php' ?>
+<?php include_once './views/inc/footer.inc.php' ?>
+<!-- is-invalid -->
