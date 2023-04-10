@@ -6,7 +6,7 @@ id_user_form.value = id_user;
 var id_produit = document.getElementById("id_produit");
 id_produit.value = id_product;
 
-var URLROOT = `http://localhost/Meowpaws/`
+var URLROOT = `http://localhost/Meowpaws/`;
 
 var fileInput = document.getElementById("file-input");
 var fileButton = document.getElementById("file-button");
@@ -43,20 +43,20 @@ form.addEventListener("submit", (event) => {
     delete data.file;
     data.file = imagesName;
     console.log(data);
-  fetch('http://localhost/meowpaws/backend/CommentStars/Insert', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).then(res => res.json())
-        .then(data => {
-            if (data.message == "Review Added") {
-              location.replace(URLROOT);
-            } else {
-                location.replace(`${URLROOT}pages/review`);
-            }
-        })
-        
+    fetch("http://localhost/meowpaws/backend/CommentStars/Insert", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message == "Review Added") {
+          location.replace(URLROOT);
+        } else {
+          location.replace(`${URLROOT}pages/review`);
+        }
+      });
   }
 });

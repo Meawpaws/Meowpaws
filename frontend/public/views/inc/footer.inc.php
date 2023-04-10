@@ -65,6 +65,7 @@
 <!-- script -->
 <script src=" <?=URLROOT?>/layout/js/main.js"></script>
 <script src="<?=URLROOT?>/layout/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 </body>
 
 </html>
