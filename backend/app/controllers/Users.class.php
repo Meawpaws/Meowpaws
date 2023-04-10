@@ -5,18 +5,19 @@ class Users extends Controller {
     private $userModel;
 
     public function __construct() {
-        $this->userModel = $this->model( 'User' );
+        $this->userModel = $this->model('User');
     }
 
     public function register()
     {
-        header( 'Access-Control-Allow-Origin:*' );
+        header( 'Access-Control-Allow-Origin: *' );
         header( 'Content-Type: application/json' );
         header( 'Access-Control-Allow-Method: POST' );
         header( 'Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation' );
+        
 
         $data = json_decode( file_get_contents( 'php://input' ) );
-        $name = $data->name;
+        $name = $data->username;
         $email = $data->email;
         $password = $data->password;
         $hashPass = password_hash($password,PASSWORD_DEFAULT);
@@ -29,7 +30,7 @@ class Users extends Controller {
             echo json_encode(
                 array( 'message' => 'Didn\'t Account Added')
             );
-        }
+        } 
     }
     public function login()
     {
@@ -54,5 +55,6 @@ class Users extends Controller {
             array('message' => 'Didn\'t Account Susses' )
             );
         }
+
     }
 }

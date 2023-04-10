@@ -49,7 +49,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="<?=URLROOT?>users/card">
+                    <a class="nav-link active" href="<?=URLROOT?>pages/card">
                         <img class="icon" src="<?=URLROOT?>/layout/image/card.svg" alt="card">
                     </a>
                 </li>
