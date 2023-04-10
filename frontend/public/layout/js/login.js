@@ -7,8 +7,8 @@ var errorPassword = document.getElementById('errorPassword')
 var URLROOT = `http://localhost/Meowpaws/`
 
 login.addEventListener('submit', (event) => {
-    const formData = new FormData(login);
-    const data = Object.fromEntries(formData);
+    const formData1 = new FormData(login);
+    const data1 = Object.fromEntries(formData);
     var error_Email = ''
     errorEmail.innerHTML = error_Email
     email.classList += 'form-control form-control-lg'
@@ -16,17 +16,19 @@ login.addEventListener('submit', (event) => {
     errorPassword.innerHTML = error_Password
     password.classList += 'form-control form-control-lg'
     
-    if (data.email == ' ' || !data.email) {
+    if (data1.email == ' ' || !data1.email) {
         error_Email = 'Empty Email'
         errorEmail.innerHTML = error_Email
         email.classList += 'form-control form-control-lg is-invalid'
     }
-    if (data.password == ' ' || !data.password) {
+    if (data1.password == ' ' || !data1.password) {
         error_Password = 'Empty Password'
         errorPassword.innerHTML = error_Password
         password.classList += 'form-control form-control-lg is-invalid'
     }
     event.preventDefault()
+    const formData = new FormData(login);
+    const data = Object.fromEntries(formData);
     if ((error_Password == ' ' || !error_Password) && (error_Email || !error_Email)) {
       fetch('http://localhost/meowpaws/backend/Users/login', {
         method: 'POST',
