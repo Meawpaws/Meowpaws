@@ -29,12 +29,7 @@
                         aria-expanded="true">
                         <img class="icon" src="./layout/image/user.svg" alt="user">
                     </a>
-                    <ul class="dropdown-menu mr" data-bs-popper="static">
-                        <li><a class="dropdown-item" href="#">LOGIN</a></li>
-                        <li><a class="dropdown-item" href="#">SIGNUP</a></li>
-
-                        <li><a class="dropdown-item" href="#">LOGOUT</a></li>
-                    </ul>
+                    <ul class="dropdown-menu mr" id ="ulNavbarAdmin" data-bs-popper="static"></ul>
                 </li>
             </ul>
         </div>

@@ -40,13 +40,7 @@
                         aria-expanded="true">
                         <img class="icon" src="<?=URLROOT?>/layout/image/user.svg" alt="user">
                     </a>
-                    <ul class="dropdown-menu mr" data-bs-popper="static">
-                        <li><a class="dropdown-item" href="<?=URLROOT?>users/login">LOGIN</a></li>
-                        <li><a class="dropdown-item" href="<?=URLROOT?>users/register">SIGNUP</a></li>
-
-                        <li><a class="dropdown-item" href="<?=URLROOT?>users/profile">PROFILE</a></li>
-                        <li><a class="dropdown-item" href="<?=URLROOT?>users/logout">LOGOUT</a></li>
-                    </ul>
+                    <ul class="dropdown-menu mr" id ="ulNavbarUser" data-bs-popper="static"></ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="<?=URLROOT?>pages/card">
