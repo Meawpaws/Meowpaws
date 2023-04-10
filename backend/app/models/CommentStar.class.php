@@ -32,7 +32,7 @@ class CommentStar
         $id_cs = $row->id_cs;
 
         for ($i=0; $i < count($image); $i++) { 
-            $this->addImage($id_cs,$image[$i]->name);
+            $this->addImage($id_cs,$image[$i]);
         }
         return true;
     }

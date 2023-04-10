@@ -19,6 +19,7 @@ class CommentStars extends Controller
         $message = $data->message;
         $stars = $data->stars;
         $file = $data->file;
+
         if($this->commentStarModel->add($message,$stars,$id_user,$id_produit,$file)) {
             echo json_encode(
             array('message' => 'Review Added')
