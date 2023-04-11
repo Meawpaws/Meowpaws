@@ -36,4 +36,25 @@ class Cards extends Controller
             );
         }
     }
+    public function GetProductByIdUser($id_u)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');     
+
+        $products = $this->cartModel->GetProductByIdUser($id_u);
+        if($products) {
+            echo json_encode(
+            array(
+                'message' => 'Products In Card',
+                'result' => $products
+                )
+            );
+        } else {
+            echo json_encode(
+            array('message' => 'Didn\'t Products In Card')
+            );
+        }
+    }
 }

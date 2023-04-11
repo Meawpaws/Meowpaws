@@ -57,7 +57,7 @@ fetch(`http://localhost/meowpaws/backend/products/view/${id}`, {
                     <input type="text" readonly value= "Category : ${info.cname}" name ="category_product">
                 </span>
                 <span class="inputProductView">
-                    <input type="number" value= "1" name ="quantity_product" id="quantity_product">
+                    <input type="number" value= "1" name ="quantity_product" id="">
                 </span>`;
           
                 

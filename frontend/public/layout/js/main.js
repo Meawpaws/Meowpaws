@@ -1,7 +1,7 @@
 const id_user = localStorage.getItem("ID_USER");
 const ulNavbarAdmin = document.getElementById("ulNavbarAdmin");
 const ulNavbarUser = document.getElementById("ulNavbarUser");
-var URLROOT =`http://localhost/Meowpaws/`
+var URLROOT = `http://localhost/Meowpaws/`
 var liNavbarAdmin
 var liNavbarUser
 if (ulNavbarAdmin) {

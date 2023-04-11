@@ -28,4 +28,11 @@ class Card
         else
             return false;
     }
+    public function GetProductByIdUser($id_u)
+    {
+        $this->db->query("SELECT *,ca.price priceCard FROM `card` ca, `product` pr WHERE ca.id_p = pr.id_p AND ca.id_u = :id_u");
+        $this->db->bind(':id_u',$id_u);
+        $row = $this->db->fetchAll();
+        return $row;    
+    }
 }
