@@ -1,8 +1,7 @@
 const tableProduct = document.getElementById("tableProduct");
 const sumPrice = document.getElementById("sumPrice");
-var priceSum = 0;
 var URLROOT = `http://localhost/Meowpaws/`;
-var URLIMGPRODUCT = `http://localhost/Meowpaws/layout/image/products/`
+var URLIMGPRODUCT = `http://localhost/Meowpaws/layout/image/products/`;
 if (!id_user || id_user === "null" || id_user === "undefined") {
   location.replace("../users/login");
 } else {
@@ -20,7 +19,8 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
       var result = data.result;
       console.log(result);
       if (data.message == "Products In Card") {
-        var product = ``
+        var product = ``;
+        var priceSum = 0;
         for (let i = 0; i < result.length; i++) {
           var id_card = result[i].id_card;
           var imagePricipal = result[i].imagePricipal;
@@ -28,14 +28,7 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
           var price = result[i].price;
           var priceCard = result[i].priceCard;
           var quantité = result[i].quantité;
-          console.log(
-            id_card,
-            imagePricipal,
-            pname,
-            price,
-            priceCard,
-            quantité
-          );
+          priceSum += priceCard;
           product += `<tr>
                     <td data-th="Product">
                       <div class="row">
@@ -48,7 +41,7 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
                         </div>
                       </div>
                     </td>
-                    <td data-th="Price">$${priceCard}</td>
+                    <td data-th="Price" id="priceGlobal${i}">$${priceCard}</td>
                     <td data-th="Quantity">
                       <input type="number" id="quantity_product${i}" class="form-control form-control-lg text-center" value="${quantité}">
                     </td>
@@ -61,23 +54,28 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
                     </td>
                   </tr>`;
         }
-        tableProduct.innerHTML = product
+        tableProduct.innerHTML = product;
+        sumPrice.innerHTML = "$" + priceSum;
+        for (let i = 0; i < result.length; i++) {
+          let quantity_product = document.getElementById(
+            `quantity_product${i}`
+          );
+          let priceGlobal = document.getElementById(`priceGlobal${i}`);
+          quantity_product.addEventListener("input", function () {
+            if (quantity_product.value < 1) {
+              quantity_product.value = 1;
+            }
+            let newPrice = price * quantity_product.value;
+            priceGlobal.innerHTML = "$" + newPrice;
+          });
+        }
+        priceSum = 0;
+        
       } else {
         console.log(data.message);
       }
     });
 }
-//
-//   var quantity_product = document.getElementById(`quantity_product${i}`);
-//   quantity_product.addEventListener("input", function () {
-//     if (quantity_product.value < 1) {
-//       quantity_product.value = 1;
-//     }
-//   });
-//   var priceGlobal = quantity_product.value * result[i].price;
-//   var priceGlobal = result[i].quantité * result[i].price;
-//   priceSum += priceGlobal;
-//   sumPrice.innerHTML = priceSum;
-//   tableProduct.innerHTML = product;
+
 //                      <a href="${URLROOT}card/delete/${result[i].id_card}">
 // </a>
