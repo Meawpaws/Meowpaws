@@ -32,6 +32,7 @@ a {
 /* navbar */
 .navMe {
   padding: 0 !important;
+  background-color: white !important;
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
 }
 
