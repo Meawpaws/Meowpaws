@@ -1,0 +1,1 @@
+<script src="<?= URLROOT ?>layout/js/logoutAdmin.js"></script>

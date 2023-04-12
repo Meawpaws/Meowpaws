@@ -1,1 +1,1 @@
-<script src="<?= URLROOT ?>layout/js/logout.js"></script>
+<script src="<?= URLROOT ?>layout/js/logoutUser.js"></script>

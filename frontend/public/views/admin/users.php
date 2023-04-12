@@ -34,11 +34,7 @@
                 <td>marouane216</td>
                 <td>uanemaro216@gmail.com</td>
                 <td>0696554077</td>
-                <td>
-                    <div class="adressDiv">
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est repudiandae</span>
-                    </div>
-                </td>
+                <td>Lorem ipsum dolor sit amet consectetur</td>
                 <td>4536423</td>
                 <td>Safi</td>
                 <td>Maroc</td>

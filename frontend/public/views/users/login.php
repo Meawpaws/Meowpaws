@@ -26,5 +26,5 @@
             </div>
         </div>
     </div>
-    <script src="<?= URLROOT ?>layout/js/login.js"></script>
+    <script src="<?= URLROOT ?>layout/js/loginUser.js"></script>
 <?php include_once './views/inc/footer.inc.php' ?>
