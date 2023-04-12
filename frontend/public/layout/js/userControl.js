@@ -1,11 +1,9 @@
-var id_userTest = 1
 var URLROOT = `http://localhost/Meowpaws/`;
 
 var userTbody = document.getElementById("userTbody");
 
   // vérifier si id_user est indéfini ou nul
-  // if (!id_user || id_user === "null" || id_user === "undefined") {
-  if (!id_userTest || id_userTest === "null" || id_userTest === "undefined") {
+  if (!id_user || id_user === "null" || id_user === "undefined") {
     location.replace(`${URLROOT}admin`);
   } else {
     

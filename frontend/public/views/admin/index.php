@@ -1,5 +1,12 @@
 <?php include_once './views/inc/header.inc.php';
 $noFooter = ''; ?>
+<script>
+    var id_check = localStorage.getItem('ID_USER')
+    if (id_check && id_check !== "null" && id_check !== "undefined") {
+        var URLROOT_ADMIN = `http://localhost/Meowpaws/admin/`;
+        location.replace(`${URLROOT_ADMIN}Dashboard`);
+    }
+</script>
     <div class="row">
         <div class="col-md-6 mx-auto mt-4">
             <div class="card card-body p-3">
