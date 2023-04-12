@@ -26,37 +26,7 @@
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody id="userTbody">
-            <tr>
-                <td><img class="imageReview" src="<?=URLROOT?>layout/image/profile/avatar.png" alt="avatar"></td>
-                <td>Bouchettoy</td>
-                <td>MarouanE</td>
-                <td>marouane216</td>
-                <td>uanemaro216@gmail.com</td>
-                <td>0696554077</td>
-                <td>Lorem ipsum dolor sit amet consectetur</td>
-                <td>4536423</td>
-                <td>Safi</td>
-                <td>Maroc</td>
-                <td>Admin</td>
-                <td>24/04/4 34:43:34</td>
-                <td>
-                    <div class ="actionDiv">
-                        <span title="delete" class="action delete" onclick="delete(id_user)">
-                            <i class="fa fa-close"></i>
-                        </span>
-                        <span title="edit" class="action edit">
-                        <a href = "<?=URLROOT?>admin/editUser">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                        </span>
-                        <span title="change role" class="action Role" onclick="role(id_user)">
-                            <img src="<?=URLROOT?>layout/image/siteWebPages/userRole.svg" alt="avatar">
-                        </span>
-                    </div>
-                </td>
-            </tr>
-        <tbody>
+        <tbody id="userTbody"><tbody>
     </table>
 </div>
 <?php include_once './views/inc/footer.inc.php' ?>
