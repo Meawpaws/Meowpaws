@@ -1,6 +1,4 @@
 if (!id_user || id_user === "null" || id_user === "undefined") {
-  location.replace(`${URLROOT}admin/Dashboard`);
-} else {
   var login = document.getElementById("login");
   var email = document.getElementById("email");
   var password = document.getElementById("password");
@@ -58,4 +56,6 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
         });
     }
   });
+} else {
+location.replace(`${URLROOT}admin/Dashboard`);
 }
