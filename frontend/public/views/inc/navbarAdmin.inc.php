@@ -29,7 +29,9 @@
                         aria-expanded="true">
                         <img class="icon" src="<?=URLROOT?>layout/image/user.svg" alt="user">
                     </a>
-                    <ul class="dropdown-menu mr" id ="ulNavbarAdmin" data-bs-popper="static"></ul>
+                    <ul class="dropdown-menu mr" id ="ulNavbarAdmin" data-bs-popper="static">
+                        <li><a class="dropdown-item" href="<?=URLROOT?>admin/logout">LOGOUT</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

@@ -64,3 +64,4 @@
     </table>
 </div>
 <?php include_once './views/inc/footer.inc.php' ?>
+<script src="<?= URLROOT ?>layout/js/userControl.js"></script>
