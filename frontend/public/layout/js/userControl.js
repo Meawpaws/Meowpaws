@@ -47,7 +47,7 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
                             <i class="fa fa-close"></i>
                           </span>
                           <span title="edit" class="action edit">
-                              <a href = "${URLROOT}admin/editUser?id_u=${result[i].id_u}">
+                              <a href = "${URLROOT}admin/editUser?id_u=${result[i].id_u}" onclick = "checkClickUserEdit()">
                                 <i class="fa fa-edit"></i>
                               </a>
                             </span>
@@ -102,4 +102,7 @@ function changeRole(id) {
         location.replace(`${URLROOT}admin/users`);
       }
     });
+}
+function checkClickUserEdit() {
+  localStorage.setItem('checkClickUserEdit',1)
 }

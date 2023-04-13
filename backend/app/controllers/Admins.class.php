@@ -11,22 +11,22 @@ class Admins extends Controller
         header('Access-Control-Allow-Origin:*');
         header('Content-Type: application/json');
         header('Access-Control-Allow-Method: POST');
-        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');        
-    
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
         $data = json_decode(file_get_contents("php://input"));
         $email = $data->email;
         $password = $data->password;
-        if($this->adminModel->login($email,$password)) {
+        if ($this->adminModel->login($email, $password)) {
             $row = $this->adminModel->getAdminByEmail($email);
             echo json_encode(
-            array(
-                'message' => 'Account Susses',
-                'result' => $row
-            )
+                array(
+                    'message' => 'Account Susses',
+                    'result' => $row
+                )
             );
         } else {
             echo json_encode(
-            array('message' => 'Didn\'t Account Susses' )
+                array('message' => 'Didn\'t Account Susses')
             );
         }
     }
@@ -35,19 +35,40 @@ class Admins extends Controller
         header('Access-Control-Allow-Origin:*');
         header('Content-Type: application/json');
         header('Access-Control-Allow-Method: GET');
-        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');     
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
 
         $users = $this->adminModel->selectAll();
-        if($users) {
+        if ($users) {
             echo json_encode(
-            array(
-                'message' => 'Users Info',
-                'result' => $users
+                array(
+                    'message' => 'Users Info',
+                    'result' => $users
                 )
             );
         } else {
             echo json_encode(
-            array('message' => 'Didn\'t Users Info')
+                array('message' => 'Didn\'t Users Info')
+            );
+        }
+    }
+    public function User($id)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: UPDATE');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $user = $this->adminModel->select($id);
+        if ($user) {
+            echo json_encode(
+                array(
+                    'message' => 'User Info',
+                    'result' => $user
+                )
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Didn\'t User Info')
             );
         }
     }
@@ -56,15 +77,15 @@ class Admins extends Controller
         header('Access-Control-Allow-Origin:*');
         header('Content-Type: application/json');
         header('Access-Control-Allow-Method: GET');
-        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');     
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
 
-        if($this->adminModel->delete($id)) {
+        if ($this->adminModel->delete($id)) {
             echo json_encode(
-            array('message' => 'Users Deleted')
+                array('message' => 'Users Deleted')
             );
         } else {
             echo json_encode(
-            array('message' => 'Users Not Deleted')
+                array('message' => 'Users Not Deleted')
             );
         }
     }
@@ -73,15 +94,94 @@ class Admins extends Controller
         header('Access-Control-Allow-Origin:*');
         header('Content-Type: application/json');
         header('Access-Control-Allow-Method: GET');
-        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');     
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
 
-        if($this->adminModel->ChangeRole($id)) {
+        if ($this->adminModel->ChangeRole($id)) {
             echo json_encode(
-            array('message' => 'Role Changed')
+                array('message' => 'Role Changed')
             );
         } else {
             echo json_encode(
-            array('message' => 'Role Not Changed')
+                array('message' => 'Role Not Changed')
+            );
+        }
+    }
+    public function Update($id)
+    {
+        $data = json_decode(file_get_contents("php://input"));
+        
+        $name = $data->name;
+        if ($name != '' && !empty($name)) {
+            $name = 'name = ' . $name;
+            $returnName=$this->adminModel->Update($name, $id);
+        } else {
+            $returnName = false;
+        }
+        
+        $prenom = $data->prenom;
+        if ($prenom != '' && !empty($prenom)) {
+            $prenom = 'prenom = ' . $prenom;
+            $returnPrenom=$this->adminModel->Update($prenom, $id);
+        } else {
+            $returnPrenom = false;
+        }
+
+        $number = $data->number;
+        if ($number != '' && !empty($number)) {
+            $number = 'number = ' . $number;
+            $returnNumber=$this->adminModel->Update($number, $id);
+        } else {
+            $returnNumber = false;
+        }
+
+        $adress = $data->adress;
+        if ($adress != '' && !empty($adress)) {
+            $adress = 'adress = ' . $adress;
+            $returnAdress=$this->adminModel->Update($adress, $id);
+        } else {
+            $returnAdress = false;
+        }
+
+        $postCode = $data->postCode;
+        if ($postCode != '' && !empty($postCode)) {
+            $postCode = 'postcode = ' . $postCode;
+            $returnPostcode=$this->adminModel->Update($postCode, $id);
+        } else {
+            $returnPostcode = false;
+        }
+
+        $state = $data->state;
+        if ($state != '' && !empty($state)) {
+            $state = 'State = ' . $state;
+            $returnState=$this->adminModel->Update($state, $id);
+        } else {
+            $returnState = false;
+        }
+
+        $country = $data->country;
+        if ($country != '' && !empty($country)) {
+            $country = 'Country = ' . $country;
+            $returnCountry=$this->adminModel->Update($country, $id);
+        } else {
+            $returnCountry = false;
+        }
+
+        $role = $data->role;
+        if ($role != '' && !empty($role)) {
+            $role = 'role = ' . $role;
+            $returnRole=$this->adminModel->Update($role, $id);
+        } else {
+            $returnRole = false;
+        }
+
+
+        if ($returnName||$returnPrenom||$returnNumber||$returnAdress||$returnPostcode||$returnState||$returnCountry||$returnRole) {
+            echo json_encode(
+                array('message' => 'Role Changed')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Role Not Changed')
             );
         }
     }

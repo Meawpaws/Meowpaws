@@ -15,18 +15,27 @@ class Admin
             return true;
         else
             return false;
-    }
-    public function updateAuto($username,$password,$id)
-    {
-        $this->db->query("UPDATE `users` SET`username`= :username,`password`=:password WHERE `id_u` = :id");
-        $this->db->bind(':username', $username);
-        $this->db->bind(':password', $password);
-        $this->db->bind(':id', $id);
-        if ($this->db->execute())
-            return true;
-        else
-            return false;
-    }
+        }
+        public function updateAuto($username,$password,$id)
+        {
+            $this->db->query("UPDATE `users` SET`username`= :username,`password`=:password WHERE `id_u` = :id");
+            $this->db->bind(':username', $username);
+            $this->db->bind(':password', $password);
+            $this->db->bind(':id', $id);
+            if ($this->db->execute())
+                return true;
+            else
+                return false;
+        }
+        public function Update($sql, $id)
+        {
+            $this->db->query("UPDATE `users` SET '$sql' WHERE `id_u` = :id");
+            $this->db->bind(':id', $id);
+            if ($this->db->execute())
+                return true;
+            else
+                return false;
+        }
     public function updateAvatar($avatar)
     {
         $this->db->query("UPDATE `users` SET`avatar_user`=:avatar WHERE `id_u` = :id");
@@ -41,6 +50,15 @@ class Admin
     {
         $this->db->query("SELECT * FROM users WHERE email = :email AND role = 1");
         $this->db->bind(":email", $email);
+        $this->db->execute();
+        if($this->db->rowCount()) return $this->db->fetch();
+        else
+            return false;
+    }
+    public function select($id) 
+    {
+        $this->db->query("SELECT * FROM users WHERE id_u = :id");
+        $this->db->bind(":id", $id);
         $this->db->execute();
         if($this->db->rowCount()) return $this->db->fetch();
         else

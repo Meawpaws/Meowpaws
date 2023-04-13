@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 24 mars 2023 à 22:51
+-- Généré le : jeu. 13 avr. 2023 à 15:46
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -28,11 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `card` (
+  `id_card` int(11) NOT NULL,
   `id_u` int(11) NOT NULL,
   `id_p` int(11) NOT NULL,
   `quantité` int(11) NOT NULL,
   `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `card`
+--
+
+INSERT INTO `card` (`id_card`, `id_u`, `id_p`, `quantité`, `price`) VALUES
+(1, 1, 2, 2, 24),
+(2, 1, 2, 1, 12),
+(3, 1, 2, 9, 109),
+(4, 1, 2, 1, 12),
+(7, 1, 4, 1, 11);
 
 -- --------------------------------------------------------
 
@@ -50,7 +62,9 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id_c`, `cname`) VALUES
-(1, 'dog');
+(1, 'dog'),
+(2, 'cat'),
+(3, 'bedBrackets');
 
 -- --------------------------------------------------------
 
@@ -72,14 +86,67 @@ CREATE TABLE `commentstar` (
 
 INSERT INTO `commentstar` (`id_cs`, `comment`, `star`, `id_u`, `id_p`) VALUES
 (1, 'fbsdvdqsv', 4, 1, 2),
-(2, 'fbsdvdqsv', 4, 1, 2),
-(3, 'fbsdvdqsv', 4, 1, 2),
-(4, 'fbsdvdqsv', 4, 1, 2),
+(3, 'fbsdvdqsvdgwxf', 4, 1, 2),
 (5, 'fbsdvdqsv', 3, 1, 2),
 (6, 'fbsdvdqsv', 3, 1, 2),
 (7, 'fbsdvdqsv', 1, 1, 2),
 (8, 'fbsdvdqsv', 5, 1, 2),
-(9, 'fbsdvdqsv', 5, 1, 2);
+(9, 'fbsdvdqsv', 5, 1, 2),
+(10, 'ldsgndskf', 4, 1, 2),
+(11, 'reftgyhjkl', 4, 1, 2),
+(12, 'reftgyhjkl', 4, 1, 2),
+(13, 'reftgyhjkl', 4, 1, 2),
+(14, 'reftgyhjkl', 4, 1, 2),
+(15, 'reftgyhjkl', 4, 1, 2),
+(16, 'reftgyhjkl', 4, 1, 2),
+(17, 'reftgyhjkl', 4, 1, 2),
+(18, 'reftgyhjkl', 4, 1, 2),
+(19, 'reftgyhjkl', 4, 1, 2),
+(20, 'reftgyhjkl', 4, 1, 2),
+(21, 'reftgyhjkl', 4, 1, 2),
+(22, 'reftgyhjkl', 4, 1, 2),
+(23, 'reftgyhjkl', 4, 1, 2),
+(24, 'reftgyhjkl', 4, 1, 2),
+(25, 'reftgyhjkl', 4, 1, 2),
+(26, 'reftgyhjkl', 4, 1, 2),
+(27, 'reftgyhjkl', 4, 1, 2),
+(28, 'reftgyhjkl', 4, 1, 2),
+(29, 'reftgyhjkl', 4, 1, 2),
+(30, 'sdfgqrsdf', 5, 1, 2),
+(31, 'xwcxsc', 3, 1, 2),
+(32, 'xwcxscdg', 5, 1, 2),
+(33, 'sdfsd', 4, 1, 2),
+(34, 'cvdsq', 5, 1, 2),
+(35, 'cvdsq', 5, 1, 2),
+(36, 'cvdsq', 5, 1, 2),
+(37, 'cvdsq', 5, 1, 2),
+(38, 'cvdsq', 5, 1, 2),
+(39, 'cvdsq', 5, 1, 2),
+(40, 'cvdsq', 5, 1, 2),
+(41, 'cvdsq', 5, 1, 2),
+(42, 'cvdsq', 5, 1, 2),
+(43, 'cvdsq', 5, 1, 2),
+(44, 'cvdsq', 5, 1, 2),
+(45, 'cvdsq', 5, 1, 2),
+(46, 'cvdsq', 5, 1, 2),
+(47, 'cvdsq', 5, 1, 2),
+(48, 'cvdsq', 5, 1, 2),
+(49, 'feFD', 5, 1, 2),
+(50, 'XWFSD', 2, 1, 2),
+(51, 'xcfqdf', 5, 1, 2),
+(52, 'sdfghjkl\n', 4, 1, 2),
+(53, 'rygerzr', 4, 1, 2),
+(54, 'xcsdf', 3, 1, 2),
+(55, 'dfqergfqe', 5, 1, 2),
+(56, 'dsgsdfg', 3, 1, 2),
+(57, 'dsfdqf', 4, 1, 2),
+(58, 'dsfdqfsdf', 4, 1, 2),
+(59, 'sdf', 4, 1, 2),
+(60, 'cxfb', 4, 1, 2),
+(62, 'reftgyhjkl', 4, 1, 2),
+(71, 'reftgyhjkl', 4, 1, 2),
+(72, 'reftgyhjkl', 4, 1, 2),
+(73, 'reftgyhjkl', 4, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -95,6 +162,16 @@ CREATE TABLE `contact` (
   `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Déchargement des données de la table `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `email`, `telephone`, `message`) VALUES
+(1, 'marouane bouchettoy', 'uanemaro216@gmail.com', '0696554077', 'hjk'),
+(2, 'marouane bouchettoy', 'uanemaro216@gmail.com', '', 'sqrf'),
+(3, 'marouane bouchettoy', 'uanemaro216@gmail.com', '', 'sqrf'),
+(4, 'marouane bouchettoy', 'uanemaro216@gmail.com', '', 'sqrf');
+
 -- --------------------------------------------------------
 
 --
@@ -105,6 +182,28 @@ CREATE TABLE `picturescommentstar` (
   `image` varchar(255) NOT NULL,
   `id_cs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `picturescommentstar`
+--
+
+INSERT INTO `picturescommentstar` (`image`, `id_cs`) VALUES
+('dzxdsxsx.dxsx', 11),
+('dzxdsxsx.dxsx', 11),
+('dzxdsxsx.dxsx', 26),
+('dzxdsxsx.dxsx', 26),
+('dzxdsxsx.dxsx', 27),
+('dzxdsxsx.dxsx', 27),
+('dzxdsxsx.dxsx', 28),
+('dzxdsxsx.dxsx', 28),
+('dzxdsxsx.dxsx', 29),
+('dzxdsxsx.dxsx', 29),
+('dzxdsxsx.dxsx', 62),
+('dzxdsxsx.dxsx', 62),
+('dzxdsxsx.dxsx', 71),
+('dzxdsxsx.dxsx', 71),
+('dzxdsxsx.dxsx', 73),
+('dzxdsxsx.dxsx', 73);
 
 -- --------------------------------------------------------
 
@@ -123,8 +222,8 @@ CREATE TABLE `picturesproduct` (
 --
 
 INSERT INTO `picturesproduct` (`id_i`, `image`, `id_p`) VALUES
-(1, 'zeafr', 2),
-(2, 'zafezfr', 2);
+(1, 'i-1.svg', 2),
+(2, 'i-2.svg', 2);
 
 -- --------------------------------------------------------
 
@@ -146,10 +245,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id_p`, `pname`, `price`, `description`, `imagePricipal`, `id_c`) VALUES
-(2, 'shoses', 12, 'zarr', 'i-1.svg', 1),
-(3, 'shoses', 12, 'zarr', 'i-2.svg', 1),
-(4, 'shoses', 12, 'zarr', 'i-1.svg', 1),
-(5, 'shoses', 12, 'zarr', 'i-2.svg', 1);
+(2, 'shoses', 12, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\n        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\n        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\n        optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\n        obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam\n        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,\n        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,\n        quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \n        sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\n        recusandae alias error harum maxime adipisci amet laborum.', 'i-1.svg', 1),
+(3, 'shoses', 12, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\n        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\n        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\n        optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\n        obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam\n        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,\n        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,\n        quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \n        sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\n        recusandae alias error harum maxime adipisci amet laborum.', 'i-2.svg', 2),
+(4, 'shoses', 12, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\n        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\n        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\n        optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\n        obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam\n        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,\n        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,\n        quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \n        sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\n        recusandae alias error harum maxime adipisci amet laborum.', 'i-1.svg', 3),
+(5, 'shoses', 12, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\n        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\n        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\n        optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\n        obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam\n        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,\n        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,\n        quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos \n        sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam\n        recusandae alias error harum maxime adipisci amet laborum.', 'i-2.svg', 1);
 
 -- --------------------------------------------------------
 
@@ -159,20 +258,28 @@ INSERT INTO `product` (`id_p`, `pname`, `price`, `description`, `imagePricipal`,
 
 CREATE TABLE `users` (
   `id_u` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `prenom` text NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `avatar_user` text NOT NULL,
-  `role` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 = client | 1 = admin'
+  `number` varchar(10) NOT NULL,
+  `adress` text NOT NULL,
+  `postcode` int(11) NOT NULL,
+  `State` text NOT NULL,
+  `Country` text NOT NULL,
+  `role` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 = client | 1 = admin',
+  `added_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id_u`, `username`, `email`, `password`, `avatar_user`, `role`) VALUES
-(1, 'marouane', 'admin@gmail.com', '1234', '', 1),
-(2, 'marouane user', 'user@gmail.com', '1234', '', 0);
+INSERT INTO `users` (`id_u`, `name`, `prenom`, `username`, `email`, `password`, `avatar_user`, `number`, `adress`, `postcode`, `State`, `Country`, `role`, `added_at`) VALUES
+(1, '', '', 'marouaneAdmin', 'admin@gmail.com', '$2y$10$hVf4jFS9/gsDSHnu0l6z.eaLoPxhd5FFAF/hu3jJERL.BxUgIzk.m', 'avatar.png', '', '', 0, '', '', 1, '2023-04-12 10:52:18'),
+(4, '', '', 'marouaneUser', 'user@gmail.com', '$2y$10$hVf4jFS9/gsDSHnu0l6z.eaLoPxhd5FFAF/hu3jJERL.BxUgIzk.m', 'avatar.png', '', '', 0, '', '', 0, '2023-04-12 10:52:18');
 
 --
 -- Index pour les tables déchargées
@@ -182,6 +289,7 @@ INSERT INTO `users` (`id_u`, `username`, `email`, `password`, `avatar_user`, `ro
 -- Index pour la table `card`
 --
 ALTER TABLE `card`
+  ADD PRIMARY KEY (`id_card`),
   ADD KEY `card_user` (`id_u`),
   ADD KEY `card_product` (`id_p`);
 
@@ -229,29 +337,37 @@ ALTER TABLE `product`
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id_u`);
+  ADD PRIMARY KEY (`id_u`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
+-- AUTO_INCREMENT pour la table `card`
+--
+ALTER TABLE `card`
+  MODIFY `id_card` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT pour la table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `commentstar`
 --
 ALTER TABLE `commentstar`
-  MODIFY `id_cs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_cs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT pour la table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `picturesproduct`
@@ -269,7 +385,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_u` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_u` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Contraintes pour les tables déchargées
