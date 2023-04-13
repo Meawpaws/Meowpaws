@@ -40,10 +40,10 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
                         <td>${result[i].Country}</td>
                         <td>${role}</td>
                         <td>${result[i].added_at}</td>
-                        <td>
-                          <div class ="actionDiv">`;
+                        <td>`;
           if (result[i].role == 0) {
-            tr += `<span title="delete" class="action delete" onclick="deleteUser(${result[i].id_u})">
+            tr += `<div class ="actionDiv">
+            <span title="delete" class="action delete" onclick="deleteUser(${result[i].id_u})">
                             <i class="fa fa-close"></i>
                           </span>
                           <span title="edit" class="action edit">
@@ -53,10 +53,12 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
                             </span>
                             <span title="change role" class="action Role" onclick="changeRole(${result[i].id_u})">
                               <img src="${URLROOT}layout/image/siteWebPages/userRole.svg" alt="avatar">
-                            </span>`;
+                            </span>
+                            </div>`;
+          } else {
+            tr += `You Can't`;
           }
-          tr += `</div>
-                        </td>
+          tr += `</td>
                       </tr>`;
           userTbody.innerHTML = tr;
         }
@@ -85,4 +87,19 @@ function deleteUser(id) {
 }
 function changeRole(id) {
   console.log(id);
+  fetch(`http://localhost/meowpaws/backend/Admins/ChangeRole/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.message == "Role Changed") {
+        location.replace(`${URLROOT}admin/users`);
+      }
+      if (data.message == "Role Not Changed") {
+        location.replace(`${URLROOT}admin/users`);
+      }
+    });
 }

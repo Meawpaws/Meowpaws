@@ -68,4 +68,21 @@ class Admins extends Controller
             );
         }
     }
+    public function ChangeRole($id)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');     
+
+        if($this->adminModel->ChangeRole($id)) {
+            echo json_encode(
+            array('message' => 'Role Changed')
+            );
+        } else {
+            echo json_encode(
+            array('message' => 'Role Not Changed')
+            );
+        }
+    }
 }

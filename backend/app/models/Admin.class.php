@@ -88,4 +88,12 @@ class Admin
         $row = $this->db->fetchAll();
         return $row;
     }
+    public function ChangeRole($id)
+    {
+        $this->db->query('UPDATE `users` SET `role` = 1 WHERE `id_u` = :id');
+        $this->db->bind(':id',$id);
+        if ($this->db->execute())
+            return true;
+        else
+            return false;}
 }
