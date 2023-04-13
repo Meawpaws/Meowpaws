@@ -47,11 +47,13 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log(data);
           if (data.message == "Account Susses") {
             localStorage.setItem("ID_USER", data.result.id_u);
+            localStorage.setItem("ROLE_USER", data.result.role);
             location.replace(`${URLROOT}admin/Dashboard`);
           } else {
-            location.replace(`${URLROOT}admin/login`);
+            location.replace(`${URLROOT}admin`);
           }
         });
     }

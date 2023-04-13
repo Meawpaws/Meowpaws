@@ -44,6 +44,7 @@ login.addEventListener('submit', (event) => {
         .then(data => {
             if (data.message == "Account Susses") {
               localStorage.setItem("ID_USER",data.result.id_u);
+              localStorage.setItem("ROLE_USER", data.result.role);
               location.replace(URLROOT);
             } else {
                 location.replace(`${URLROOT}users/login`);

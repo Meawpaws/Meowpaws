@@ -31,6 +31,7 @@
                     </a>
                     <ul class="dropdown-menu mr" id ="ulNavbarAdmin" data-bs-popper="static">
                         <li><a class="dropdown-item" href="<?=URLROOT?>admin/logout">LOGOUT</a></li>
+                        <li><a class="dropdown-item" href="<?=URLROOT?>">GO TO STORE</a></li>
                     </ul>
                 </li>
             </ul>

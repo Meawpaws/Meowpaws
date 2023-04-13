@@ -17,7 +17,7 @@ class Admins extends Controller
         $email = $data->email;
         $password = $data->password;
         if($this->adminModel->login($email,$password)) {
-            $row = $this->adminModel->login($email,$password);
+            $row = $this->adminModel->getAdminByEmail($email);
             echo json_encode(
             array(
                 'message' => 'Account Susses',
