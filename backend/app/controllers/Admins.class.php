@@ -203,6 +203,7 @@ class Admins extends Controller
         $username = $data->username;
         $email = $data->email;
         $password = $data->password;
+        $password = password_hash($password,PASSWORD_DEFAULT);;
         $number = $data->number;
         $adress = $data->adress;
         $postcode = $data->postCode;

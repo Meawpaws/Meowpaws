@@ -26,11 +26,7 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
             var role = "user";
           }
           tr += `<tr id = "${result[i].id_u}">
-                        <td>
-                          <img class="imageReview" src="${URLROOT}layout/image/profile/${result[i].avatar_user}" alt="avatar">
-                        </td>
-                        <td>${result[i].name}</td>
-                        <td>${result[i].prenom}</td>
+                        <td>${result[i].name} ${result[i].prenom}</td>
                         <td>${result[i].username}</td>
                         <td>${result[i].email}</td>
                         <td>${result[i].number}</td>
@@ -38,7 +34,6 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
                         <td>${result[i].postcode}</td>
                         <td>${result[i].State}</td>
                         <td>${result[i].Country}</td>
-                        <td>${role}</td>
                         <td>${result[i].added_at}</td>
                         <td>`;
           if (result[i].role == 0) {

@@ -11,9 +11,7 @@
     <table class="fl-table">
         <thead>
             <tr>
-                <th>Avatar</th>
-                <th>Nom</th>
-                <th>Prenom</th>
+                <th>Full Nom</th>
                 <th>Username</th>
                 <th>Email</th>
                 <th>Number</th>
@@ -21,7 +19,6 @@
                 <th>PostCode</th>
                 <th>State</th>
                 <th>Country</th>
-                <th>Role</th>
                 <th>Added At</th>
                 <th>Action</th>
             </tr>
