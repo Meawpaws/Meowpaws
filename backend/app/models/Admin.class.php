@@ -29,8 +29,8 @@ class Admin
         }
         public function Update($sql, $id)
         {
-            $this->db->query("UPDATE `users` SET '$sql' WHERE `id_u` = :id");
-            $this->db->bind(':id', $id);
+            $sql = "UPDATE `users` SET $sql WHERE `id_u` = $id";
+            $this->db->query($sql);
             if ($this->db->execute())
                 return true;
             else

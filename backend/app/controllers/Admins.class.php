@@ -108,11 +108,16 @@ class Admins extends Controller
     }
     public function Update($id)
     {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: PUT');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
         $data = json_decode(file_get_contents("php://input"));
         
         $name = $data->name;
         if ($name != '' && !empty($name)) {
-            $name = 'name = ' . $name;
+            $name = 'name = "' . $name .'"';
             $returnName=$this->adminModel->Update($name, $id);
         } else {
             $returnName = false;
@@ -120,7 +125,7 @@ class Admins extends Controller
         
         $prenom = $data->prenom;
         if ($prenom != '' && !empty($prenom)) {
-            $prenom = 'prenom = ' . $prenom;
+            $prenom = 'prenom = "' . $prenom .'"';
             $returnPrenom=$this->adminModel->Update($prenom, $id);
         } else {
             $returnPrenom = false;
@@ -128,7 +133,7 @@ class Admins extends Controller
 
         $number = $data->number;
         if ($number != '' && !empty($number)) {
-            $number = 'number = ' . $number;
+            $number = 'number= "' . $number .'"';
             $returnNumber=$this->adminModel->Update($number, $id);
         } else {
             $returnNumber = false;
@@ -136,7 +141,7 @@ class Admins extends Controller
 
         $adress = $data->adress;
         if ($adress != '' && !empty($adress)) {
-            $adress = 'adress = ' . $adress;
+            $adress = 'adress= "' . $adress .'"';
             $returnAdress=$this->adminModel->Update($adress, $id);
         } else {
             $returnAdress = false;
@@ -144,7 +149,7 @@ class Admins extends Controller
 
         $postCode = $data->postCode;
         if ($postCode != '' && !empty($postCode)) {
-            $postCode = 'postcode = ' . $postCode;
+            $postCode = 'postcode= "' . $postCode .'"';
             $returnPostcode=$this->adminModel->Update($postCode, $id);
         } else {
             $returnPostcode = false;
@@ -152,7 +157,7 @@ class Admins extends Controller
 
         $state = $data->state;
         if ($state != '' && !empty($state)) {
-            $state = 'State = ' . $state;
+            $state = 'State= "' . $state .'"';
             $returnState=$this->adminModel->Update($state, $id);
         } else {
             $returnState = false;
@@ -160,7 +165,7 @@ class Admins extends Controller
 
         $country = $data->country;
         if ($country != '' && !empty($country)) {
-            $country = 'Country = ' . $country;
+            $country = 'Country= "' . $country .'"';
             $returnCountry=$this->adminModel->Update($country, $id);
         } else {
             $returnCountry = false;
@@ -168,7 +173,7 @@ class Admins extends Controller
 
         $role = $data->role;
         if ($role != '' && !empty($role)) {
-            $role = 'role = ' . $role;
+            $role = 'role= "' . $role .'"';
             $returnRole=$this->adminModel->Update($role, $id);
         } else {
             $returnRole = false;

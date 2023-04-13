@@ -124,8 +124,10 @@ if (checkClickUserEdit != 1) {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
 
+        console.log(data);
+
         fetch(`http://localhost/meowpaws/backend/Admins/Update/${id}`, {
-          method: "UPDATE",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json"
           },
