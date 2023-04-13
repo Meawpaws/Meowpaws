@@ -1,5 +1,3 @@
-var URLROOT = `http://localhost/Meowpaws/`;
-
 var userTbody = document.getElementById("userTbody");
 
 // vérifier si id_user est indéfini ou nul

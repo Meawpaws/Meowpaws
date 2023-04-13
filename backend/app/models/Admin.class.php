@@ -16,6 +16,15 @@ class Admin
         else
             return false;
     }
+    public function deleteItem($id)
+    {
+        $this->db->query("DELETE FROM product WHERE id_c = :id");
+        $this->db->bind(':id', $id);
+        if ($this->db->execute())
+            return true;
+        else
+            return false;
+    }
 
     public function Update($sql, $id)
     {
@@ -88,6 +97,12 @@ class Admin
     public function selectAll()
     {
         $this->db->query("SELECT * FROM `users`");
+        $row = $this->db->fetchAll();
+        return $row;
+    }
+    public function selectAllItems()
+    {
+        $this->db->query("SELECT * FROM `product` pr, `category` ca WHERE pr.id_c = ca.id_c");
         $row = $this->db->fetchAll();
         return $row;
     }

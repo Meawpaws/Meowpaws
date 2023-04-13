@@ -51,6 +51,27 @@ class Admins extends Controller
             );
         }
     }
+    public function Items()
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $items = $this->adminModel->selectAllItems();
+        if ($items) {
+            echo json_encode(
+                array(
+                    'message' => 'Items Info',
+                    'result' => $items
+                )
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Didn\'t Items Info')
+            );
+        }
+    }
     public function User($id)
     {
         header('Access-Control-Allow-Origin:*');
@@ -86,6 +107,23 @@ class Admins extends Controller
         } else {
             echo json_encode(
                 array('message' => 'Users Not Deleted')
+            );
+        }
+    }
+    public function deleteItem($id)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        if ($this->adminModel->deleteItem($id)) {
+            echo json_encode(
+                array('message' => 'Item Deleted')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Item Not Deleted')
             );
         }
     }
