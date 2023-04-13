@@ -126,7 +126,7 @@ if (checkClickUserEdit != 1) {
 
         console.log(data);
 
-        fetch(`http://localhost/meowpaws/backend/Admins/Update/${id}`, {
+        fetch(`http://localhost/meowpaws/backend/Admins/UpdateUser/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"

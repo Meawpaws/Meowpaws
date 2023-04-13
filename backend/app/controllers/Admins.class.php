@@ -106,7 +106,7 @@ class Admins extends Controller
             );
         }
     }
-    public function Update($id)
+    public function UpdateUser($id)
     {
         header('Access-Control-Allow-Origin:*');
         header('Content-Type: application/json');
@@ -114,79 +114,108 @@ class Admins extends Controller
         header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
 
         $data = json_decode(file_get_contents("php://input"));
-        
+
         $name = $data->name;
         if ($name != '' && !empty($name)) {
-            $name = 'name = "' . $name .'"';
-            $returnName=$this->adminModel->Update($name, $id);
+            $name = 'name = "' . $name . '"';
+            $returnName = $this->adminModel->Update($name, $id);
         } else {
             $returnName = false;
         }
-        
+
         $prenom = $data->prenom;
         if ($prenom != '' && !empty($prenom)) {
-            $prenom = 'prenom = "' . $prenom .'"';
-            $returnPrenom=$this->adminModel->Update($prenom, $id);
+            $prenom = 'prenom = "' . $prenom . '"';
+            $returnPrenom = $this->adminModel->Update($prenom, $id);
         } else {
             $returnPrenom = false;
         }
 
         $number = $data->number;
         if ($number != '' && !empty($number)) {
-            $number = 'number= "' . $number .'"';
-            $returnNumber=$this->adminModel->Update($number, $id);
+            $number = 'number= "' . $number . '"';
+            $returnNumber = $this->adminModel->Update($number, $id);
         } else {
             $returnNumber = false;
         }
 
         $adress = $data->adress;
         if ($adress != '' && !empty($adress)) {
-            $adress = 'adress= "' . $adress .'"';
-            $returnAdress=$this->adminModel->Update($adress, $id);
+            $adress = 'adress= "' . $adress . '"';
+            $returnAdress = $this->adminModel->Update($adress, $id);
         } else {
             $returnAdress = false;
         }
 
         $postCode = $data->postCode;
         if ($postCode != '' && !empty($postCode)) {
-            $postCode = 'postcode= "' . $postCode .'"';
-            $returnPostcode=$this->adminModel->Update($postCode, $id);
+            $postCode = 'postcode= "' . $postCode . '"';
+            $returnPostcode = $this->adminModel->Update($postCode, $id);
         } else {
             $returnPostcode = false;
         }
 
         $state = $data->state;
         if ($state != '' && !empty($state)) {
-            $state = 'State= "' . $state .'"';
-            $returnState=$this->adminModel->Update($state, $id);
+            $state = 'State= "' . $state . '"';
+            $returnState = $this->adminModel->Update($state, $id);
         } else {
             $returnState = false;
         }
 
         $country = $data->country;
         if ($country != '' && !empty($country)) {
-            $country = 'Country= "' . $country .'"';
-            $returnCountry=$this->adminModel->Update($country, $id);
+            $country = 'Country= "' . $country . '"';
+            $returnCountry = $this->adminModel->Update($country, $id);
         } else {
             $returnCountry = false;
         }
 
         $role = $data->role;
         if ($role != '' && !empty($role)) {
-            $role = 'role= "' . $role .'"';
-            $returnRole=$this->adminModel->Update($role, $id);
+            $role = 'role= "' . $role . '"';
+            $returnRole = $this->adminModel->Update($role, $id);
         } else {
             $returnRole = false;
         }
 
 
-        if ($returnName||$returnPrenom||$returnNumber||$returnAdress||$returnPostcode||$returnState||$returnCountry||$returnRole) {
+        if ($returnName || $returnPrenom || $returnNumber || $returnAdress || $returnPostcode || $returnState || $returnCountry || $returnRole) {
             echo json_encode(
                 array('message' => 'Role Changed')
             );
         } else {
             echo json_encode(
                 array('message' => 'Role Not Changed')
+            );
+        }
+    }
+    public function AddUser()
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: POST');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $data = json_decode(file_get_contents("php://input"));
+        $name = $data->name;
+        $prenom = $data->prenom;
+        $username = $data->username;
+        $email = $data->email;
+        $password = $data->password;
+        $number = $data->number;
+        $adress = $data->adress;
+        $postcode = $data->postCode;
+        $State = $data->state;
+        $Country = $data->country;
+        $role = $data->role;
+        if ($this->adminModel->addUser($name,$prenom,$username, $email, $password, $number,$adress,$postcode,$State,$Country,$role)) {
+            echo json_encode(
+                array('message' => 'Account Added')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Account Not Added')
             );
         }
     }
