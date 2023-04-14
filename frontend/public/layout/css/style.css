@@ -822,25 +822,84 @@ sup {
   justify-content: center;
   align-items: center;
 }
-.imagesProductEdit{
+
+.imagesProductEdit {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-gap: 10px;
 }
+
 .grid-ImageItemEdit {
   width: 9.517vw;
   height: 9.517vw;
-  background-color: #ccc;
   border: 1px solid black !important;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
-.imagesProductEditPrincipal{
+
+.imagesProductEditPrincipal {
   grid-row: 2/4;
   grid-column: 4/6;
   width: auto;
   height: auto;
 }
-.opacitynone{
+
+.opacitynone {
   opacity: 0;
+}
+
+.grid-ImageItemEdit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-ImageItemEdit img,
+.inputHiddenClick img {
+  width: 9.517vw;
+  height: 9.517vw;
+  background-size: cover !important;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.inputHiddenClick {
+  background-image: url("http://localhost/Meowpaws/layout/image/products/item.svg");
+  width: 9.517vw;
+  height: 9.517vw;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.inputHiddenClick:hover {
+  opacity: 0.5;
+}
+
+.imagePrincipal {
+  width: 19.5vw !important;
+  height: 19.5vw !important;
+}
+
+.imagePrincipal img {
+  width: 19.5vw !important;
+  height: 19.5vw !important;
+}
+
+.deleteImages {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: end;
+}
+.deleteImages i{
+  background-color: red;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

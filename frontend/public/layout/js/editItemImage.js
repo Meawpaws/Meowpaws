@@ -1,96 +1,86 @@
-const form = document.getElementById("editItem");
+var URLROOT_IMAGE = `http://localhost/Meowpaws/layout/image/products/`;
+var IMG_DEFAULT = `http://localhost/Meowpaws/layout/image/products/item.svg`;
 
-var URLROOT_IMAGE = `http://localhost/Meowpaws/layout/image/products/`
+var formUpdate = document.getElementById("formUpdate");
+var newImage = document.getElementById("newImage");
+var saveImage = document.getElementById("saveImage");
+
+var imagePrincipal = document.getElementById("imagePrincipal");
+var updateImagePrincipal = document.getElementById("updateImagePrincipal");
+
+var image1 = document.getElementById("image1");
+var updateImage1 = document.getElementById("updateImage1");
+var trash1 = document.getElementById("trash1");
+
+var image2 = document.getElementById("image2");
+var updateImage2 = document.getElementById("updateImage2");
+var trash2 = document.getElementById("trash2");
+
+var image3 = document.getElementById("image3");
+var updateImage3 = document.getElementById("updateImage3");
+var trash3 = document.getElementById("trash3");
+
+var image4 = document.getElementById("image4");
+var updateImage4 = document.getElementById("updateImage4");
+var trash4 = document.getElementById("trash4");
 
 const idKeyValue = window.location.search;
 const idParam = new URLSearchParams(idKeyValue);
 const id = idParam.get("id_p");
-const checkClickProductEdit = localStorage.getItem("checkClickProductEdit");
 
-if (checkClickProductEdit != 1) {
-  location.replace(`${URLROOT}admin/Items`);
-} else {
-  fetch(`http://localhost/meowpaws/backend/Admins/Product/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json"
+fetch(`http://localhost/meowpaws/backend/Admins/ImagesProduct/${id}`, {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json"
+  }
+})
+  .then((res) => res.json())
+  .then((data) => {
+    var imgPricipal = data.result.imgPricipal;
+    var imgsSeconder = data.result.imgsSeconder;
+
+    imagePrincipal.setAttribute("src", `${URLROOT_IMAGE}${imgPricipal}`);
+    if (imagePrincipal == undefined || imagePrincipal == "undefined") {
+      image.setAttribute("src", `${IMG_DEFAULT}`);
+    } else {
+      imagePrincipal.setAttribute("src", `${URLROOT_IMAGE}${imgPricipal}`);
     }
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      var info = data.result.infoProduct;
-      var category = data.result.categories;
-      var inputs = `<div class="col-md-12">
-                        <input class="form-control" type="text" name="name" readonly value="${info.pname}" placeholder="Name" required>
-                        <div class="valid-feedback">Product name is valid!</div>
-                        <div class="invalid-feedback">Product name cannot be blank!</div>
-                    </div>
-                    
-                    <div class="col-md-12">
-                        <input class="form-control" type="text" name="price" value="${info.price}" placeholder="Price" required>
-                        <div class="valid-feedback">Product name is valid!</div>
-                        <div class="invalid-feedback">Product name cannot be blank!</div>
-                    </div>
-    
-                    <div class="col-md-12">
-                        <input class="form-control" type="text" name="description" value="${info.description}" placeholder="Description" required>
-                        <div class="valid-feedback">Product description is valid!</div>
-                        <div class="invalid-feedback">Product description cannot be blank!</div>
-                    </div>
-    
-                    <div class="col-md-12">
-                      <select class="form-select mt-3" name="category" id="categorySelect" required>
-                        <option value="">Category</option>`
-                      for (let i = 0; i < category.length; i++) {
-                        inputs += `<option value="${category[i].id_c}">${category[i].cname}</option>`
-                      }
-                      inputs += `</select>
-                      <div class="valid-feedback">You selected a Category!</div>
-                      <div class="invalid-feedback">Please select a Category!</div>
-                    </div>
 
-                    <div class="form-button mt-3">
-                    <button id="submit" type="submit" class="btn btn-primary">Save</button>
-                    </div>`
-      form.innerHTML = inputs;
-      // Get the select element
-      var categorySelect = document.getElementById("categorySelect");
-
-      // Get the options of the select element
-      var options = categorySelect.options;
-
-      // Loop through the options and do something with each one
-      for (var i = 0; i < options.length; i++) {
-        console.log(options[i]);
-        console.log(info.id_c);
-        if (info.id_c == options[i].value) {
-          options[i].selected = true;
-        }
+    for (let i = 0; i < 4; i++) {
+      var j = i + 1;
+      let image = document.getElementById(`image${j}`);
+      if (imgsSeconder[i] == undefined || imgsSeconder[i] == "undefined") {
+        image.setAttribute("src", `${IMG_DEFAULT}`);
+      } else {
+        image.setAttribute("src", `${URLROOT_IMAGE}${imgsSeconder[i].image}`);
       }
+    }
+  });
 
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-
-        console.log(data);
-
-        fetch(`http://localhost/meowpaws/backend/Admins/UpdateItem/${id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(data)
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.message == "Item Updated") {
-              location.replace(`${URLROOT}admin/Items`);
-            } else {
-              location.replace(`${URLROOT}admin/Items`);
-            }
-          });
+updateImagePrincipal.addEventListener("click", () => {
+  newImage.click();
+  newImage.addEventListener("input", () => {
+    saveImage.click();
+  });
+  formUpdate.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(formUpdate);
+    const data = Object.fromEntries(formData);
+    var image = formData.get("file");
+    image = image.name;
+    delete data.file;
+    data.file = image;
+    console.log(data);
+    fetch(`http://localhost/meowpaws/backend/Admins/UpdatePrincipalImage/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        imagePrincipal.setAttribute("src", `${URLROOT_IMAGE}${image}`);
       });
-    });
-}
+  });
+});
