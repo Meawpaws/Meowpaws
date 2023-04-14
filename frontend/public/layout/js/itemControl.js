@@ -17,7 +17,7 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
       if (data.message == "Items Info") {
         var result = data.result;
         console.log(result);
-        var tr = ``
+        var tr = ``;
         for (let i = 0; i < result.length; i++) {
           tr += `<tr id="${result[i].id_p}">
           <td>
@@ -37,6 +37,11 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
                           <i class="fa fa-edit"></i>
                       </a>
                   </span>
+                  <span title="edit" class="action EditImages">
+                      <a href="${URLROOT}admin/editItemImage?id_p=${result[i].id_p}" onclick = "checkClickImageEdit()">
+                        <img class = "icon" src="${URLROOT}layout/image/siteWebPages/imageParam.svg" alt="imageParam">
+                      </a>
+                  </span>
               </div>
           </td>
       </tr>`;
@@ -46,26 +51,26 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
         location.replace(`${URLROOT}admin/items`);
       }
     });
-    
-function deleteItem(id) {
-  console.log(id);
-  fetch(`http://localhost/meowpaws/backend/Admins/deleteItem/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      if (data.message == "Item Deleted") {
-        location.replace(`${URLROOT}admin/Items`);
-      }else{
-        location.replace(`${URLROOT}admin/Items`);
+
+  function deleteItem(id) {
+    console.log(id);
+    fetch(`http://localhost/meowpaws/backend/Admins/deleteItem/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
       }
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.message == "Item Deleted") {
+          location.replace(`${URLROOT}admin/Items`);
+        } else {
+          location.replace(`${URLROOT}admin/Items`);
+        }
+      });
   }
 }
 function checkClickProductEdit() {
-  localStorage.setItem('checkClickProductEdit',1)
+  localStorage.setItem("checkClickProductEdit", 1);
 }
