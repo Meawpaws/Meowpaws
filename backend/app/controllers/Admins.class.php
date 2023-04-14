@@ -258,4 +258,28 @@ class Admins extends Controller
             );
         }
     }
+    public function Product($id){
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $product = [
+            'infoProduct' => $this->adminModel->selectProduct($id),
+            'images' => $this->adminModel->selectByIdProductImages($id),
+            'categories' => $this->adminModel->selectAllCategory()
+        ];
+        if ($product) {
+            echo json_encode(
+                array(
+                    'message' => 'Product Info',
+                    'result' => $product
+                )
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Didn\'t Product Info')
+            );
+        }
+    }
 }

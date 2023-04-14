@@ -18,12 +18,14 @@ class Admin
     }
     public function deleteItem($id)
     {
-        $this->db->query("DELETE FROM product WHERE id_c = :id");
+        $this->db->query("DELETE FROM product WHERE id_p = :id");
         $this->db->bind(':id', $id);
-        if ($this->db->execute())
+        if ($this->db->execute()){
             return true;
-        else
+        }
+        else{
             return false;
+        }
     }
 
     public function Update($sql, $id)
@@ -57,6 +59,22 @@ class Admin
     public function select($id)
     {
         $this->db->query("SELECT * FROM users WHERE id_u = :id");
+        $this->db->bind(":id", $id);
+        $this->db->execute();
+        if ($this->db->rowCount()) return $this->db->fetch();
+        else
+        return false;
+    } 
+    public function selectByIdProductImages($id)
+    {
+        $this->db->query("SELECT * FROM `picturesproduct` pp WHERE pp.id_p = :id");
+        $this->db->bind(':id',$id);
+        $row = $this->db->fetchAll();
+        return $row;
+    }   
+    public function selectProduct($id)
+    {
+        $this->db->query("SELECT * FROM `product` pr, `category` ca WHERE pr.id_c = ca.id_c AND pr.id_p = :id");
         $this->db->bind(":id", $id);
         $this->db->execute();
         if ($this->db->rowCount()) return $this->db->fetch();
@@ -126,5 +144,11 @@ class Admin
             return true;
         else
             return false;
+    }
+    public function selectAllCategory()
+    {
+        $this->db->query("SELECT * FROM `category`");
+        $row = $this->db->fetchAll();
+        return $row;
     }
 }

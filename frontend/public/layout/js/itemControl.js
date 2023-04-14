@@ -33,7 +33,7 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
                       <i class="fa fa-close"></i>
                   </span>
                   <span title="edit" class="action edit">
-                      <a href="${URLROOT}admin/editItem?id_u=${result[i].id_p}">
+                      <a href="${URLROOT}admin/editItem?id_p=${result[i].id_p}" onclick = "checkClickProductEdit()">
                           <i class="fa fa-edit"></i>
                       </a>
                   </span>
@@ -46,7 +46,7 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
         location.replace(`${URLROOT}admin/items`);
       }
     });
-}
+    
 function deleteItem(id) {
   console.log(id);
   fetch(`http://localhost/meowpaws/backend/Admins/deleteItem/${id}`, {
@@ -57,11 +57,15 @@ function deleteItem(id) {
   })
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       if (data.message == "Item Deleted") {
         location.replace(`${URLROOT}admin/Items`);
-      }
-      if (data.message == "Users Not Deleted") {
+      }else{
         location.replace(`${URLROOT}admin/Items`);
       }
     });
+  }
+}
+function checkClickProductEdit() {
+  localStorage.setItem('checkClickProductEdit',1)
 }
