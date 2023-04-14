@@ -156,7 +156,7 @@ class Admins extends Controller
         $name = $data->name;
         if ($name != '' && !empty($name)) {
             $name = 'name = "' . $name . '"';
-            $returnName = $this->adminModel->Update($name, $id);
+            $returnName = $this->adminModel->Update('users',$name, 'id_u ='. $id);
         } else {
             $returnName = false;
         }
@@ -164,7 +164,7 @@ class Admins extends Controller
         $prenom = $data->prenom;
         if ($prenom != '' && !empty($prenom)) {
             $prenom = 'prenom = "' . $prenom . '"';
-            $returnPrenom = $this->adminModel->Update($prenom, $id);
+            $returnPrenom = $this->adminModel->Update('users',$prenom, 'id_u ='. $id);
         } else {
             $returnPrenom = false;
         }
@@ -172,7 +172,7 @@ class Admins extends Controller
         $number = $data->number;
         if ($number != '' && !empty($number)) {
             $number = 'number= "' . $number . '"';
-            $returnNumber = $this->adminModel->Update($number, $id);
+            $returnNumber = $this->adminModel->Update('users',$number, 'id_u ='. $id);
         } else {
             $returnNumber = false;
         }
@@ -180,7 +180,7 @@ class Admins extends Controller
         $adress = $data->adress;
         if ($adress != '' && !empty($adress)) {
             $adress = 'adress= "' . $adress . '"';
-            $returnAdress = $this->adminModel->Update($adress, $id);
+            $returnAdress = $this->adminModel->Update('users',$adress, 'id_u ='. $id);
         } else {
             $returnAdress = false;
         }
@@ -188,7 +188,7 @@ class Admins extends Controller
         $postCode = $data->postCode;
         if ($postCode != '' && !empty($postCode)) {
             $postCode = 'postcode= "' . $postCode . '"';
-            $returnPostcode = $this->adminModel->Update($postCode, $id);
+            $returnPostcode = $this->adminModel->Update('users',$postCode, 'id_u ='. $id);
         } else {
             $returnPostcode = false;
         }
@@ -196,7 +196,7 @@ class Admins extends Controller
         $state = $data->state;
         if ($state != '' && !empty($state)) {
             $state = 'State= "' . $state . '"';
-            $returnState = $this->adminModel->Update($state, $id);
+            $returnState = $this->adminModel->Update('users',$state, 'id_u ='. $id);
         } else {
             $returnState = false;
         }
@@ -204,7 +204,7 @@ class Admins extends Controller
         $country = $data->country;
         if ($country != '' && !empty($country)) {
             $country = 'Country= "' . $country . '"';
-            $returnCountry = $this->adminModel->Update($country, $id);
+            $returnCountry = $this->adminModel->Update('users',$country, 'id_u ='. $id);
         } else {
             $returnCountry = false;
         }
@@ -212,7 +212,7 @@ class Admins extends Controller
         $role = $data->role;
         if ($role != '' && !empty($role)) {
             $role = 'role= "' . $role . '"';
-            $returnRole = $this->adminModel->Update($role, $id);
+            $returnRole = $this->adminModel->Update('users',$role, 'id_u ='. $id);
         } else {
             $returnRole = false;
         }
@@ -225,6 +225,57 @@ class Admins extends Controller
         } else {
             echo json_encode(
                 array('message' => 'Role Not Changed')
+            );
+        }
+    }
+    public function UpdateItem($id)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: PUT');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $data = json_decode(file_get_contents("php://input"));
+
+        $name = $data->name;
+        if ($name != '' && !empty($name)) {
+            $name = 'pname = "' . $name . '"';
+            $returnName = $this->adminModel->Update('product',$name, 'id_p ='. $id);
+        } else {
+            $returnName = false;
+        }
+
+        $category = $data->category;
+        if ($category != '' && !empty($category)) {
+            $category = 'id_c= "' . $category . '"';
+            $returnCategory = $this->adminModel->Update('product',$category, 'id_p ='. $id);
+        } else {
+            $returnCategory = false;
+        }
+
+        $description = $data->description;
+        if ($description != '' && !empty($description)) {
+            $description = 'description= "' . $description . '"';
+            $returnDescription = $this->adminModel->Update('product',$description, 'id_p ='. $id);
+        } else {
+            $returnDescription = false;
+        }
+
+        $price = $data->price;
+        if ($price != '' && !empty($price)) {
+            $price = 'price= "' . $price . '"';
+            $returnPrice = $this->adminModel->Update('product',$price, 'id_p ='. $id);
+        } else {
+            $returnPrice = false;
+        }
+
+        if ($returnName || $returnCategory || $returnDescription || $returnPrice) {
+            echo json_encode(
+                array('message' => 'Item Changed')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Item Not Changed')
             );
         }
     }
