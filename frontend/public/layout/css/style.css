@@ -817,8 +817,7 @@ sup {
 
 /* Edit images Product */
 .imagesProductEditBg {
-  width: 100%;
-  height: 93vh;
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -829,8 +828,8 @@ sup {
   grid-gap: 10px;
 }
 .grid-ImageItemEdit {
-  width: 130px;
-  height: 130px;
+  width: 9.517vw;
+  height: 9.517vw;
   background-color: #ccc;
   border: 1px solid black !important;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

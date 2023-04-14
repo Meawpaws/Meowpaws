@@ -46,4 +46,4 @@
 </div>
 
 <?php include_once './views/inc/footer.inc.php' ?>
-<script src="<?= URLROOT ?>layout/js/editItemImage.js"></script>
+<!-- <script src="<?= URLROOT ?>layout/js/editItemImage.js"></script> -->
