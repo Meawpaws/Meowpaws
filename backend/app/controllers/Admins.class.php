@@ -360,23 +360,20 @@ class Admins extends Controller
             );
         }
     }
-    public function ImageProduct($id,$image)
+    public function ImageProduct($id_i)
     {
         header('Access-Control-Allow-Origin:*');
         header('Content-Type: application/json');
         header('Access-Control-Allow-Method: GET');
         header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
         
-        $img = $this->adminModel->ImageProduct($id,$image);
+        $img = $this->adminModel->ImageProduct($id_i);
 
-        $product = [
-            'img' => $img
-        ];
-        if ($product) {
+        if ($img) {
             echo json_encode(
                 array(
                     'message' => 'Product Images',
-                    'result' => $product
+                    'result' => $img
                 )
             );
         } else {
