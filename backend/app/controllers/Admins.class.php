@@ -491,4 +491,27 @@ class Admins extends Controller
             );
         }
     }
+    public function getCategories()
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+
+        $categories = $this->adminModel->selectAllCategory();
+
+        if (!empty($categories) && $categories != false) {
+            echo json_encode(
+                array(
+                    'message' => 'Categories Isset',
+                    "result" => $categories
+                    )
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Categories Not Isset')
+            );
+        }
+    }
 }

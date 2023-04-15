@@ -41,7 +41,6 @@ if (checkClickProductEdit != 1) {
       console.log(data);
       var info = data.result.infoProduct;
       var category = data.result.categories;
-      var images = data.result.images;
       var inputs = `<div class="col-md-12">
                         <input class="form-control" type="text" name="name" readonly value="${info.pname}" placeholder="Name" required>
                         <div class="valid-feedback">Product name is valid!</div>
