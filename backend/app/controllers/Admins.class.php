@@ -436,6 +436,26 @@ class Admins extends Controller
             );
         }
     }
+    public function deleteSecondeImage($id)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+
+        $return = $this->adminModel->deleteV2('picturesproduct', 'id_i ='. $id);
+
+        if ($return) {
+            echo json_encode(
+                array('message' => 'Image Deleted')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Image Not Deleted')
+            );
+        }
+    }
     public function AddSecondeImage($id_p)
     {
         header('Access-Control-Allow-Origin:*');
@@ -452,17 +472,22 @@ class Admins extends Controller
             $varSql = '(`image`, `id_p`) ';
             $valSql = '("'.$name.'","'.$id_p.'") ';
             $returnName = $this->adminModel->InsertInto($table,$varSql,$valSql);
+            $imgLast = $this->adminModel-> fetchLastImageSeconderAdded();
+            $imgLastId = $imgLast->id_i;
         } else {
             $returnName = false;
         }
 
         if ($returnName) {
             echo json_encode(
-                array('message' => 'Item Changed')
+                array(
+                    'message' => 'Item Added',
+                    'result' => $imgLastId
+                    )
             );
         } else {
             echo json_encode(
-                array('message' => 'Item Not Changed')
+                array('message' => 'Item Not Added')
             );
         }
     }

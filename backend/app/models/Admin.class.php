@@ -39,6 +39,15 @@ class Admin
         else
         return false;
     }
+    public function deleteV2( $table, $sql)
+ {
+        $sql = "DELETE FROM $table WHERE $sql";
+        $this->db->query( $sql );
+        if ( $this->db->execute() )
+        return true;
+        else
+        return false;
+    }
 
     public function updateAvatar( $avatar )
  {
@@ -208,6 +217,15 @@ class Admin
         $this->db->query($sql);
         if ( $this->db->execute() )
         return true;
+        else
+        return false;
+    }
+    public function fetchLastImageSeconderAdded()
+    {
+        $this->db->query( 'SELECT * FROM `picturesproduct` ORDER BY id_i DESC LIMIT 1');
+        $this->db->execute();
+        if ( $this->db->rowCount() )
+        return $this->db->fetch();
         else
         return false;
     }
