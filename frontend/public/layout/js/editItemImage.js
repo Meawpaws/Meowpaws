@@ -125,7 +125,7 @@ updateImage1.addEventListener("click", () => {
         var img = data.result.img;
         var id_i = data.result.img.id_i;
 
-        if (img == undefined || img == "undefined") {
+        if (img == undefined || img == "undefined" || img == false || img == 'false') {
           const formData = new FormData(formUpdateI1);
           const data = Object.fromEntries(formData);
           var image = formData.get("file");
@@ -200,7 +200,7 @@ updateImage2.addEventListener("click", () => {
         var img = data.result.img;
         var id_i = data.result.img.id_i;
 
-        if (img == undefined || img == "undefined") {
+        if (img == undefined || img == "undefined" || img == false || img == 'false') {
           const formData = new FormData(formUpdateI2);
           const data = Object.fromEntries(formData);
           var image = formData.get("file");
@@ -275,7 +275,7 @@ updateImage3.addEventListener("click", () => {
         var img = data.result.img;
         var id_i = data.result.img.id_i;
 
-        if (img == undefined || img == "undefined") {
+        if (img == undefined || img == "undefined" || img == false || img == 'false') {
           const formData = new FormData(formUpdateI3);
           const data = Object.fromEntries(formData);
           var image = formData.get("file");
