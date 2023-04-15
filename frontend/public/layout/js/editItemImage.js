@@ -417,14 +417,137 @@ trash1.addEventListener('click',()=>{
     .then((res) => res.json())
     .then((data) => {
       var id_i = data.result.img.id_i;
+      image = 'item.svg'
+          data = {}
+          data.file = image;
+          fetch(
+            `http://localhost/meowpaws/backend/Admins/UpdateSecondeImage/${id_i}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(data)
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(image);
+              image1.setAttribute("src", `${URLROOT_IMAGE}${image}`);
+            });
     })
 })
 trash2.addEventListener('click',()=>{
-  console.log('2');
+  var img2src = image2.src;
+  var img2array = img2src.split(
+    "http://localhost/Meowpaws/layout/image/products/"
+  );
+  var imageOld = img2array[1];
+  fetch(
+    `http://localhost/meowpaws/backend/Admins/ImageProduct/${id}/${imageOld}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      var id_i = data.result.img.id_i;
+      image = 'item.svg'
+          data = {}
+          data.file = image;
+          fetch(
+            `http://localhost/meowpaws/backend/Admins/UpdateSecondeImage/${id_i}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(data)
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(image);
+              image2.setAttribute("src", `${URLROOT_IMAGE}${image}`);
+            });
+    })
 })
 trash3.addEventListener('click',()=>{
-  console.log('3');
+  var img3src = image3.src;
+  var img3array = img3src.split(
+    "http://localhost/Meowpaws/layout/image/products/"
+  );
+  var imageOld = img3array[1];
+  fetch(
+    `http://localhost/meowpaws/backend/Admins/ImageProduct/${id}/${imageOld}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      var id_i = data.result.img.id_i;
+      image = 'item.svg'
+          data = {}
+          data.file = image;
+          fetch(
+            `http://localhost/meowpaws/backend/Admins/UpdateSecondeImage/${id_i}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(data)
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(image);
+              image3.setAttribute("src", `${URLROOT_IMAGE}${image}`);
+            });
+    })
 })
 trash4.addEventListener('click',()=>{
-  console.log('4');
+  var img4src = image4.src;
+  var img4array = img4src.split(
+    "http://localhost/Meowpaws/layout/image/products/"
+  );
+  var imageOld = img4array[1];
+  fetch(
+    `http://localhost/meowpaws/backend/Admins/ImageProduct/${id}/${imageOld}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      var id_i = data.result.img.id_i;
+      image = 'item.svg'
+          data = {}
+          data.file = image;
+          fetch(
+            `http://localhost/meowpaws/backend/Admins/UpdateSecondeImage/${id_i}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(data)
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(image);
+              image4.setAttribute("src", `${URLROOT_IMAGE}${image}`);
+            });
+    })
 })
