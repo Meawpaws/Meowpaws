@@ -202,4 +202,14 @@ class Admin
         else
         return false;
     }
+        // INSERT INTO  $varSql VALUES $valSql
+    public function InsertInto($table,$varSql,$valSql)
+    {
+        $sql = 'INSERT INTO '.$table.$varSql.'VALUES '.$valSql;
+        $this->db->query($sql);
+        if ( $this->db->execute() )
+        return true;
+        else
+        return false;
+    }
 }

@@ -58,9 +58,29 @@
     </div>
 </div>
 
-<form  class="opacitynone" id="formUpdate" style ="position:absolute;z-index:0;top: -123%;">
-				<input type="file" name="file" accept="image/*" id="newImage">
-				<input type="submit" id="saveImage">
+<form  class="opacitynone" id="formUpdateIP" style ="position:absolute;z-index:0;top: -123%;">
+				<input type="file" name="file" accept="image/*" id="newImageIP">
+				<input type="submit" id="saveImageIP">
+			</form>
+
+<form  class="opacitynone" id="formUpdateI1" style ="position:absolute;z-index:0;top: -123%;">
+				<input type="file" name="file" accept="image/*" id="newImageI1">
+				<input type="submit" id="saveImageI1">
+			</form>
+
+<form  class="opacitynone" id="formUpdateI2" style ="position:absolute;z-index:0;top: -123%;">
+				<input type="file" name="file" accept="image/*" id="newImageI2">
+				<input type="submit" id="saveImageI2">
+			</form>
+
+<form  class="opacitynone" id="formUpdateI3" style ="position:absolute;z-index:0;top: -123%;">
+				<input type="file" name="file" accept="image/*" id="newImageI3">
+				<input type="submit" id="saveImageI3">
+			</form>
+
+<form  class="opacitynone" id="formUpdateI4" style ="position:absolute;z-index:0;top: -123%;">
+				<input type="file" name="file" accept="image/*" id="newImageI4">
+				<input type="submit" id="saveImageI4">
 			</form>
 <?php include_once './views/inc/footer.inc.php' ?>
 <script src="<?= URLROOT ?>layout/js/editItemImage.js"></script>

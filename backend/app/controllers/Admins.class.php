@@ -439,4 +439,34 @@ class Admins extends Controller
             );
         }
     }
+    public function AddSecondeImage($id_p)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: POST');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $data = json_decode(file_get_contents("php://input"));
+
+        $name = $data->file;
+
+        if ($name != '' && !empty($name)) {
+            $table = 'picturesproduct ';
+            $varSql = '(`image`, `id_p`) ';
+            $valSql = '("'.$name.'","'.$id_p.'") ';
+            $returnName = $this->adminModel->InsertInto($table,$varSql,$valSql);
+        } else {
+            $returnName = false;
+        }
+
+        if ($returnName) {
+            echo json_encode(
+                array('message' => 'Item Changed')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Item Not Changed')
+            );
+        }
+    }
 }
