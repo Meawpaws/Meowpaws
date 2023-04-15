@@ -51,7 +51,7 @@ fetch(`http://localhost/meowpaws/backend/Admins/ImagesProduct/${id}`, {
     var imgsSeconder = data.result.imgsSeconder;
 
     imagePrincipal.setAttribute("src", `${URLROOT_IMAGE}${imgPricipal}`);
-    if (imagePrincipal == undefined || imagePrincipal == "undefined") {
+    if (imagePrincipal == undefined || imagePrincipal == "undefined" || imagePrincipal==''|| imagePrincipal == ' ') {
       image.setAttribute("src", `${IMG_DEFAULT}`);
     } else {
       imagePrincipal.setAttribute("src", `${URLROOT_IMAGE}${imgPricipal}`);
@@ -60,7 +60,7 @@ fetch(`http://localhost/meowpaws/backend/Admins/ImagesProduct/${id}`, {
     for (let i = 0; i < 4; i++) {
       var j = i + 1;
       let image = document.getElementById(`image${j}`);
-      if (imgsSeconder[i] == undefined || imgsSeconder[i] == "undefined") {
+      if (imgsSeconder[i] == undefined || imgsSeconder[i] == "undefined" ||  imgsSeconder[i]==''|| imgsSeconder[i] == ' ') {
         image.setAttribute("src", `${IMG_DEFAULT}`);
       } else {
         image.setAttribute("src", `${URLROOT_IMAGE}${imgsSeconder[i].image}`);
@@ -400,7 +400,24 @@ updateImage4.addEventListener("click", () => {
 });
 
 trash1.addEventListener('click',()=>{
-  console.log('1');
+  var img1src = image1.src;
+  var img1array = img1src.split(
+    "http://localhost/Meowpaws/layout/image/products/"
+  );
+  var imageOld = img1array[1];
+  fetch(
+    `http://localhost/meowpaws/backend/Admins/ImageProduct/${id}/${imageOld}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      var id_i = data.result.img.id_i;
+    })
 })
 trash2.addEventListener('click',()=>{
   console.log('2');
