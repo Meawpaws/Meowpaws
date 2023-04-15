@@ -84,3 +84,49 @@ updateImagePrincipal.addEventListener("click", () => {
       });
   });
 });
+
+updateImage1.addEventListener("click", () => {
+  var img1src =image1.src
+  var img1array = img1src.split("http://localhost/Meowpaws/layout/image/products/")
+  var imageOld = img1array[1]
+  newImage.click();
+  newImage.addEventListener("input", () => {
+    saveImage.click();
+  });
+  formUpdate.addEventListener("submit", (event) => {
+    event.preventDefault();
+    fetch(`http://localhost/meowpaws/backend/Admins/ImageProduct/${id}/${imageOld}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        var img = data.result.img;      
+        var id_i = data.result.img.id_i
+
+        if (img == undefined || img == "undefined") {
+        } else {
+          const formData = new FormData(formUpdate);
+          const data = Object.fromEntries(formData);
+          var image = formData.get("file");
+          image = image.name;
+          delete data.file;
+          data.file = image;
+          fetch(`http://localhost/meowpaws/backend/Admins/UpdateSecondeImage/${id_i}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          })
+          .then((res) => res.json())
+          .then((data) => {
+              console.log(image);
+              // image1.setAttribute("src", `${URLROOT_IMAGE}${image}`);
+            });
+        }
+  });
+});
+})

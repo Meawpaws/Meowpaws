@@ -360,6 +360,31 @@ class Admins extends Controller
             );
         }
     }
+    public function ImageProduct($id,$image)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+        
+        $img = $this->adminModel->ImageProduct($id,$image);
+
+        $product = [
+            'img' => $img
+        ];
+        if ($product) {
+            echo json_encode(
+                array(
+                    'message' => 'Product Images',
+                    'result' => $product
+                )
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Didn\'t Product Images')
+            );
+        }
+    }
     public function UpdatePrincipalImage($id)
     {
         header('Access-Control-Allow-Origin:*');
@@ -373,6 +398,33 @@ class Admins extends Controller
         if ($name != '' && !empty($name)) {
             $name = 'imagePricipal= "' . $name . '"';
             $returnName = $this->adminModel->Update('product',$name, 'id_p ='. $id);
+        } else {
+            $returnName = false;
+        }
+
+        if ($returnName) {
+            echo json_encode(
+                array('message' => 'Item Changed')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Item Not Changed')
+            );
+        }
+    }
+    public function UpdateSecondeImage($id)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: PUT');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $data = json_decode(file_get_contents("php://input"));
+
+        $name = $data->file;
+        if ($name != '' && !empty($name)) {
+            $name = 'Image= "' . $name . '"';
+            $returnName = $this->adminModel->Update('picturesproduct',$name, 'id_i ='. $id);
         } else {
             $returnName = false;
         }

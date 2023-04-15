@@ -191,4 +191,15 @@ class Admin
         else
         return false;
     }
+    public function ImageProduct($id,$image)
+ {
+        $this->db->query( 'SELECT * FROM `picturesproduct` WHERE id_p = :id AND Image = :image' );
+        $this->db->bind( ':id', $id );
+        $this->db->bind( ':image', $image );
+        $this->db->execute();
+        if ( $this->db->rowCount() )
+        return $this->db->fetch();
+        else
+        return false;
+    }
 }
