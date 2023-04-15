@@ -398,3 +398,16 @@ updateImage4.addEventListener("click", () => {
       });
   });
 });
+
+trash1.addEventListener('click',()=>{
+  console.log('1');
+})
+trash2.addEventListener('click',()=>{
+  console.log('2');
+})
+trash3.addEventListener('click',()=>{
+  console.log('3');
+})
+trash4.addEventListener('click',()=>{
+  console.log('4');
+})

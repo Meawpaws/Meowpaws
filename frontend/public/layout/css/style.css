@@ -852,6 +852,7 @@ sup {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .grid-ImageItemEdit img,
@@ -894,12 +895,22 @@ sup {
   padding: 10px;
   justify-content: end;
 }
-.deleteImages i{
+.deleteImagesI{
   background-color: red;
-    height: 20px;
-    width: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  height: 20px;
+  width: 20px;
+  display: flex !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 6;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  border-radius: 8px;
+  opacity: 0;
+}
+.deleteImagesI:hover{
+  opacity: 0.5;
 }

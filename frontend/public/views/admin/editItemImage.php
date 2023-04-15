@@ -8,16 +8,16 @@
 		<div class="grid-ImageItemEdit">
 			<img alt="image1" id="image1">
 			<div class="inputHiddenClick deleteImages"  id="updateImage1">
-				<i class="fa fa-trash" id="trash1"></i>
-			</div>
+				</div>
+				<i class="fa fa-trash deleteImagesI" id="trash1"></i>
         </div>
 		<div class="grid-ImageItemEdit opacitynone"></div>
 		<div class="grid-ImageItemEdit opacitynone"></div>
 		<div class="grid-ImageItemEdit">
 			<img alt="image2" id="image2">
 			<div class="inputHiddenClick deleteImages" id="updateImage2">
-				<i class="fa fa-trash" id="trash2"></i>
-			</div>
+				</div>
+				<i class="fa fa-trash deleteImagesI" id="trash2"></i>
         </div>
 		<div class="grid-ImageItemEdit opacitynone"></div>
 		<div class="grid-ImageItemEdit opacitynone"></div>
@@ -42,16 +42,16 @@
 		<div class="grid-ImageItemEdit">
 			<img alt="image3" id="image3">
 			<div class="inputHiddenClick deleteImages" id="updateImage3">
-				<i class="fa fa-trash" id="trash3"></i>
-			</div>
+				</div>
+				<i class="fa fa-trash deleteImagesI" id="trash3"></i>
         </div>
 		<div class="grid-ImageItemEdit opacitynone"></div>
 		<div class="grid-ImageItemEdit opacitynone"></div>
 		<div class="grid-ImageItemEdit">
 			<img alt="image4" id="image4">
 			<div class="inputHiddenClick deleteImages" id="updateImage4">
-				<i class="fa fa-trash" id="trash4"></i>
-			</div>
+				</div>
+				<i class="fa fa-trash deleteImagesI" id="trash4"></i>
         </div>
 		<div class="grid-ImageItemEdit opacitynone"></div>
 		<div class="grid-ImageItemEdit opacitynone"></div>
