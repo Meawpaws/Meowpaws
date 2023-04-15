@@ -915,3 +915,8 @@ sup {
 .deleteImagesI:hover{
   opacity: 0.5;
 }
+.opacitynone2{
+  position:absolute;
+  z-index:11111;
+  opacity: 0;
+}
