@@ -124,7 +124,7 @@ updateImage1.addEventListener("click", () => {
           .then((res) => res.json())
           .then((data) => {
               console.log(image);
-              // image1.setAttribute("src", `${URLROOT_IMAGE}${image}`);
+              image1.setAttribute("src", `${URLROOT_IMAGE}${image}`);
             });
         }
   });
