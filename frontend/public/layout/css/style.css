@@ -826,7 +826,7 @@ sup {
 .imagesProductEdit {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-gap: 10px;
+  grid-gap: 1vw;
 }
 
 .grid-ImageItemEdit {
