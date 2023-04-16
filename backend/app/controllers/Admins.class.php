@@ -156,7 +156,7 @@ class Admins extends Controller
         $name = $data->name;
         if ($name != '' && !empty($name)) {
             $name = 'name = "' . $name . '"';
-            $returnName = $this->adminModel->Update('users',$name, 'id_u ='. $id);
+            $returnName = $this->adminModel->Update('users', $name, 'id_u =' . $id);
         } else {
             $returnName = false;
         }
@@ -164,7 +164,7 @@ class Admins extends Controller
         $prenom = $data->prenom;
         if ($prenom != '' && !empty($prenom)) {
             $prenom = 'prenom = "' . $prenom . '"';
-            $returnPrenom = $this->adminModel->Update('users',$prenom, 'id_u ='. $id);
+            $returnPrenom = $this->adminModel->Update('users', $prenom, 'id_u =' . $id);
         } else {
             $returnPrenom = false;
         }
@@ -172,7 +172,7 @@ class Admins extends Controller
         $number = $data->number;
         if ($number != '' && !empty($number)) {
             $number = 'number= "' . $number . '"';
-            $returnNumber = $this->adminModel->Update('users',$number, 'id_u ='. $id);
+            $returnNumber = $this->adminModel->Update('users', $number, 'id_u =' . $id);
         } else {
             $returnNumber = false;
         }
@@ -180,7 +180,7 @@ class Admins extends Controller
         $adress = $data->adress;
         if ($adress != '' && !empty($adress)) {
             $adress = 'adress= "' . $adress . '"';
-            $returnAdress = $this->adminModel->Update('users',$adress, 'id_u ='. $id);
+            $returnAdress = $this->adminModel->Update('users', $adress, 'id_u =' . $id);
         } else {
             $returnAdress = false;
         }
@@ -188,7 +188,7 @@ class Admins extends Controller
         $postCode = $data->postCode;
         if ($postCode != '' && !empty($postCode)) {
             $postCode = 'postcode= "' . $postCode . '"';
-            $returnPostcode = $this->adminModel->Update('users',$postCode, 'id_u ='. $id);
+            $returnPostcode = $this->adminModel->Update('users', $postCode, 'id_u =' . $id);
         } else {
             $returnPostcode = false;
         }
@@ -196,7 +196,7 @@ class Admins extends Controller
         $state = $data->state;
         if ($state != '' && !empty($state)) {
             $state = 'State= "' . $state . '"';
-            $returnState = $this->adminModel->Update('users',$state, 'id_u ='. $id);
+            $returnState = $this->adminModel->Update('users', $state, 'id_u =' . $id);
         } else {
             $returnState = false;
         }
@@ -204,7 +204,7 @@ class Admins extends Controller
         $country = $data->country;
         if ($country != '' && !empty($country)) {
             $country = 'Country= "' . $country . '"';
-            $returnCountry = $this->adminModel->Update('users',$country, 'id_u ='. $id);
+            $returnCountry = $this->adminModel->Update('users', $country, 'id_u =' . $id);
         } else {
             $returnCountry = false;
         }
@@ -212,7 +212,7 @@ class Admins extends Controller
         $role = $data->role;
         if ($role != '' && !empty($role)) {
             $role = 'role= "' . $role . '"';
-            $returnRole = $this->adminModel->Update('users',$role, 'id_u ='. $id);
+            $returnRole = $this->adminModel->Update('users', $role, 'id_u =' . $id);
         } else {
             $returnRole = false;
         }
@@ -240,7 +240,7 @@ class Admins extends Controller
         $name = $data->name;
         if ($name != '' && !empty($name)) {
             $name = 'pname = "' . $name . '"';
-            $returnName = $this->adminModel->Update('product',$name, 'id_p ='. $id);
+            $returnName = $this->adminModel->Update('product', $name, 'id_p =' . $id);
         } else {
             $returnName = false;
         }
@@ -248,7 +248,7 @@ class Admins extends Controller
         $category = $data->category;
         if ($category != '' && !empty($category)) {
             $category = 'id_c= "' . $category . '"';
-            $returnCategory = $this->adminModel->Update('product',$category, 'id_p ='. $id);
+            $returnCategory = $this->adminModel->Update('product', $category, 'id_p =' . $id);
         } else {
             $returnCategory = false;
         }
@@ -256,7 +256,7 @@ class Admins extends Controller
         $description = $data->description;
         if ($description != '' && !empty($description)) {
             $description = 'description= "' . $description . '"';
-            $returnDescription = $this->adminModel->Update('product',$description, 'id_p ='. $id);
+            $returnDescription = $this->adminModel->Update('product', $description, 'id_p =' . $id);
         } else {
             $returnDescription = false;
         }
@@ -264,7 +264,7 @@ class Admins extends Controller
         $price = $data->price;
         if ($price != '' && !empty($price)) {
             $price = 'price= "' . $price . '"';
-            $returnPrice = $this->adminModel->Update('product',$price, 'id_p ='. $id);
+            $returnPrice = $this->adminModel->Update('product', $price, 'id_p =' . $id);
         } else {
             $returnPrice = false;
         }
@@ -292,14 +292,14 @@ class Admins extends Controller
         $username = $data->username;
         $email = $data->email;
         $password = $data->password;
-        $password = password_hash($password,PASSWORD_DEFAULT);;
+        $password = password_hash($password, PASSWORD_DEFAULT);;
         $number = $data->number;
         $adress = $data->adress;
         $postcode = $data->postCode;
         $State = $data->state;
         $Country = $data->country;
         $role = $data->role;
-        if ($this->adminModel->addUser($name,$prenom,$username, $email, $password, $number,$adress,$postcode,$State,$Country,$role)) {
+        if ($this->adminModel->addUser($name, $prenom, $username, $email, $password, $number, $adress, $postcode, $State, $Country, $role)) {
             echo json_encode(
                 array('message' => 'Account Added')
             );
@@ -309,7 +309,8 @@ class Admins extends Controller
             );
         }
     }
-    public function Product($id){
+    public function Product($id)
+    {
         header('Access-Control-Allow-Origin:*');
         header('Content-Type: application/json');
         header('Access-Control-Allow-Method: GET');
@@ -366,7 +367,7 @@ class Admins extends Controller
         header('Content-Type: application/json');
         header('Access-Control-Allow-Method: GET');
         header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
-        
+
         $img = $this->adminModel->ImageProduct($id_i);
 
         if ($img) {
@@ -394,7 +395,7 @@ class Admins extends Controller
         $name = $data->file;
         if ($name != '' && !empty($name)) {
             $name = 'imagePricipal= "' . $name . '"';
-            $returnName = $this->adminModel->Update('product',$name, 'id_p ='. $id);
+            $returnName = $this->adminModel->Update('product', $name, 'id_p =' . $id);
         } else {
             $returnName = false;
         }
@@ -421,7 +422,7 @@ class Admins extends Controller
         $name = $data->file;
         if ($name != '' && !empty($name)) {
             $name = 'Image= "' . $name . '"';
-            $returnName = $this->adminModel->Update('picturesproduct',$name, 'id_i ='. $id);
+            $returnName = $this->adminModel->Update('picturesproduct', $name, 'id_i =' . $id);
         } else {
             $returnName = false;
         }
@@ -444,7 +445,7 @@ class Admins extends Controller
         header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
 
 
-        $return = $this->adminModel->deleteV2('picturesproduct', 'id_i ='. $id);
+        $return = $this->adminModel->deleteV2('picturesproduct', 'id_i =' . $id);
 
         if ($return) {
             echo json_encode(
@@ -470,9 +471,9 @@ class Admins extends Controller
         if ($name != '' && !empty($name)) {
             $table = 'picturesproduct ';
             $varSql = '(`image`, `id_p`) ';
-            $valSql = '("'.$name.'","'.$id_p.'") ';
-            $returnName = $this->adminModel->InsertInto($table,$varSql,$valSql);
-            $imgLast = $this->adminModel-> fetchLastImageSeconderAdded();
+            $valSql = '("' . $name . '","' . $id_p . '") ';
+            $returnName = $this->adminModel->InsertInto($table, $varSql, $valSql);
+            $imgLast = $this->adminModel->fetchLastImageSeconderAdded();
             $imgLastId = $imgLast->id_i;
         } else {
             $returnName = false;
@@ -483,7 +484,7 @@ class Admins extends Controller
                 array(
                     'message' => 'Item Added',
                     'result' => $imgLastId
-                    )
+                )
             );
         } else {
             echo json_encode(
@@ -506,7 +507,7 @@ class Admins extends Controller
                 array(
                     'message' => 'Categories Isset',
                     "result" => $categories
-                    )
+                )
             );
         } else {
             echo json_encode(
@@ -516,38 +517,43 @@ class Admins extends Controller
     }
     public function AddItem()
     {
-    header('Access-Control-Allow-Origin:*');
-    header('Content-Type: application/json');
-    header('Access-Control-Allow-Method: POST');
-    header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: POST');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
 
-    $data = json_decode(file_get_contents("php://input"));
-    
-    $name = $data->name;
-    $price = $data->price;
-    $description = $data->description;
-    $category = $data->category;
-    $imagePrincipal = $data->imagePrincipal;
+        $data = json_decode(file_get_contents("php://input"));
 
-    $imageSeconder = $data->imageSeconder;
+        $name = $data->name;
+        $price = $data->price;
+        $description = $data->description;
+        $category = $data->category;
+        $imagePrincipal = $data->imagePrincipal;
 
-    $newId = $this->adminModel->AddItem($name,$price,$description,$category,$imagePrincipal);
+        $imageSeconder = $data->imageSeconder;
 
-    $countImageSeconder=count($imageSeconder);
-    if ($countImageSeconder && isset($imageSeconder[0]) && $imageSeconder[0] !== "" && !empty($imageSeconder[0])) {
-        for ($i=0; $i < $countImageSeconder; $i++) { 
-            $this->adminModel->addImage($newId,$imageSeconder[$i]);
+        $newId = $this->adminModel->AddItem($name, $price, $description, $category, $imagePrincipal);
+
+        $countImageSeconder = count($imageSeconder);
+        if ($countImageSeconder && isset($imageSeconder[0]) && $imageSeconder[0] !== "" && !empty($imageSeconder[0])) {
+            for ($i = 0; $i < $countImageSeconder; $i++) {
+                $this->adminModel->addImage($newId, $imageSeconder[$i]);
+            }
+        }
+
+        if ($newId) {
+            echo json_encode(
+                array('message' => 'Item Insert')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Item Not Insert')
+            );
         }
     }
     
-    if ($newId) {
-        echo json_encode(
-            array('message' => 'Item Insert')
-        );
-    } else {
-        echo json_encode(
-            array('message' => 'Item Not Insert')
-        );
+    public function deleteCategory($id)
+    {
+        // Category Deleted
     }
-}
 }
