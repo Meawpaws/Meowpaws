@@ -31,5 +31,33 @@ fetch(`http://localhost/meowpaws/backend/Admins/getCategories`, {
   const addItem = document.getElementById('addItem')
 
   addItem.addEventListener('submit',(event)=>{
-    event.preventDefault
+    event.preventDefault()
+    const formData = new FormData(addItem);
+  const data = Object.fromEntries(formData);
+  var imagesSeconders = formData.getAll("imageSeconder");
+  var imagesSecondersName = [];
+  var imagePrincipal = formData.get("imagePrincipal");
+  var imagePrincipalName = imagePrincipal.name;
+
+  for (let i = 0; i < imagesSeconders.length; i++) {
+    var nameImagesSeconders = imagesSeconders[i].name;
+    imagesSecondersName.push(nameImagesSeconders);
+  }
+  delete data.imageSeconder;
+  data.imageSeconder = imagesSecondersName;
+  delete data.imagePrincipal;
+  data.imagePrincipal = imagePrincipalName;
+  console.log(data);
+
+  fetch(`http://localhost/meowpaws/backend/Admins/AddItem`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      location.replace(`${URLROOT}admin/items`);
+    });
   })
