@@ -920,3 +920,10 @@ sup {
   z-index:11111;
   opacity: 0;
 }
+
+/* add item */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
