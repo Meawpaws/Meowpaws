@@ -229,4 +229,27 @@ class Admin
         else
         return false;
     }
+    public function addImage($id_p,$image)
+    {
+        $this->db->query('INSERT INTO `picturesproduct`(`image`, `id_p`) VALUES (:image,:id_p)');
+        $this->db->bind(':id_p',$id_p);
+        $this->db->bind(':image',$image);
+        $this->db->execute();
+    }
+    public function AddItem($pname,	$price,	$description, $id_c,$imagePricipal)
+    {
+        $this->db->query('INSERT INTO `product`(`pname`, `price`, `description`, `id_c`,`imagePricipal`) VALUES (:pname,:price,:description,:id_c,:imagePricipal)');
+        $this->db->bind(':pname',$pname);
+        $this->db->bind(':price',$price);
+        $this->db->bind(':description',$description);
+        $this->db->bind(':imagePricipal',$imagePricipal);
+        $this->db->bind(':id_c',$id_c);
+        $this->db->execute();
+
+        $this->db->query("SELECT * FROM `product` ORDER BY `product`.`id_p` DESC LIMIT 1");
+        $row = $this->db->fetch();
+        $id_p = $row->id_p;
+
+        return $id_p;
+    }
 }

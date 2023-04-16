@@ -522,6 +522,32 @@ class Admins extends Controller
     header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
 
     $data = json_decode(file_get_contents("php://input"));
-    var_dump($data);
+    
+    $name = $data->name;
+    $price = $data->price;
+    $description = $data->description;
+    $category = $data->category;
+    $imagePrincipal = $data->imagePrincipal;
+
+    $imageSeconder = $data->imageSeconder;
+
+    $newId = $this->adminModel->AddItem($name,$price,$description,$category,$imagePrincipal);
+
+    $countImageSeconder=count($imageSeconder);
+    if ($countImageSeconder && isset($imageSeconder[0]) && $imageSeconder[0] !== "" && !empty($imageSeconder[0])) {
+        for ($i=0; $i < $countImageSeconder; $i++) { 
+            $this->adminModel->addImage($newId,$imageSeconder[$i]);
+        }
+    }
+    
+    if ($newId) {
+        echo json_encode(
+            array('message' => 'Item Insert')
+        );
+    } else {
+        echo json_encode(
+            array('message' => 'Item Not Insert')
+        );
+    }
 }
 }
