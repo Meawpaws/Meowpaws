@@ -117,6 +117,16 @@ class Admin
         else
         return false;
     }
+    public function addCategory( $name, $description )
+ {
+        $this->db->query( 'INSERT INTO `category`(`cname`, `Description`) VALUES (:name, :description)' );
+        $this->db->bind( ':name', $name );
+        $this->db->bind( ':description', $description );
+        if ( $this->db->execute() )
+        return true;
+        else
+        return false;
+    }
 
     public function login( $email, $password )
  {
