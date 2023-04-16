@@ -554,6 +554,77 @@ class Admins extends Controller
     
     public function deleteCategory($id)
     {
-        // Category Deleted
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+
+        $return = $this->adminModel->deleteV2('category', 'id_c =' . $id);
+
+        if ($return) {
+            echo json_encode(
+                array('message' => 'Category Deleted')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Category Not Deleted')
+            );
+        }
+    }
+    public function Category($id)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $category = $this->adminModel->selectCategoryById($id);
+        if ($category) {
+            echo json_encode(
+                array(
+                    'message' => 'Category Info',
+                    'result' => $category
+                )
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Didn\'t Category Info')
+            );
+        }
+    }
+    public function UpdateCategory($id)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: PUT');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $data = json_decode(file_get_contents("php://input"));
+
+        $name = $data->name;
+        if ($name != '' && !empty($name)) {
+            $name = 'cname = "' . $name . '"';
+            $returnName = $this->adminModel->Update('category', $name, 'id_c =' . $id);
+        } else {
+            $returnName = false;
+        }
+        
+        $description = $data->description;
+        if ($description != '' && !empty($description)) {
+            $description = 'Description= "' . $description . '"';
+            $returnDescription = $this->adminModel->Update('category', $description, 'id_c =' . $id);
+        } else {
+            $returnDescription = false;
+        }
+        if ($returnName || $returnDescription) {
+            echo json_encode(
+                array('message' => 'Category Updated')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Category Not Updated')
+            );
+        }
     }
 }

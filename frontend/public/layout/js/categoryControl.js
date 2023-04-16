@@ -18,7 +18,8 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
         var tr = ``;
         for (let i = 0; i < result.length; i++) {
           tr += `<tr id="${result[i].id_c}">
-          <td>${result[i].cname}</td>`
+          <td>${result[i].cname}</td>
+          <td>${result[i].Description}</td>`
           if (result[i].id_c == 1 || result[i].id_c == 2 || result[i].id_c == 3) {
             tr += `<td>You Can't Because Is Principal Category</td>`
           } else {

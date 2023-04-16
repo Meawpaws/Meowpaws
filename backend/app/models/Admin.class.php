@@ -252,4 +252,12 @@ class Admin
 
         return $id_p;
     }
+    
+    public function selectCategoryById($id)
+    {
+        $this->db->query("SELECT * FROM `category` WHERE `id_c` = :id");
+        $this->db->bind(':id',$id);
+        $row = $this->db->fetch();
+        return $row;
+    }
 }
