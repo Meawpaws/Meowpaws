@@ -111,7 +111,7 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
           console.log(comments);
           divComments += `<div class="comment-box">
                             <span class="member-n">
-                              <a href="${URLROOT}admin/members/${comments[i].id_u}">
+                              <a href="${URLROOT}admin/ShowUser?id_u=${comments[i].id_u}">
                                 ${comments[i].username}
                               </a>
                             </span>
