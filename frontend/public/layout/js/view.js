@@ -25,7 +25,8 @@ fetch(`http://localhost/meowpaws/backend/products/view/${id}`, {
     const images = data["images"];
     const stars = data["stars"];
     const comment = data["comment"];
-    
+    const imagesComment = data["imagesComment"];
+    console.log(imagesComment);
     localStorage.setItem("ID_PRODUCT",info.id_p);
     
     for (let i = 0; i < images.length; i++) {
@@ -88,7 +89,7 @@ fetch(`http://localhost/meowpaws/backend/products/view/${id}`, {
       ReviewOne += `</div>
                         </h1>
                         <p class="review">
-                        ${comment[i].comment}
+                          ${comment[i].comment}
                         </p>
                     </div>`;
     }

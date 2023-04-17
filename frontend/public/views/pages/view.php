@@ -33,11 +33,11 @@
     </p>
 </div>
 <center><h1 class="titleItem">REVIEWS</h1></center>
-<div class = "reviews" id="reviews">
-
-</div>
 <div class ="btnReview">
     <a href="<?= URLROOT ?>pages/review">write review</a>
+</div>
+<div class = "reviews" id="reviews">
+
 </div>
 <script src="<?= URLROOT ?>layout/js/view.js"></script>
 <?php include_once './views/inc/footer.inc.php' ?>
