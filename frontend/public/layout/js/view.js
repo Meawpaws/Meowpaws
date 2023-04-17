@@ -11,9 +11,8 @@ var formProduct = document.getElementById("Form");
 var addCart = document.getElementById("addCart");
 var buyNow = document.getElementById("buyNow");
 
-const id_user = localStorage.getItem("ID_USER");
-
 var URLROOT = `http://localhost/Meowpaws/`;
+
 fetch(`http://localhost/meowpaws/backend/products/view/${id}`, {
   method: "GET",
   headers: {
@@ -57,7 +56,7 @@ fetch(`http://localhost/meowpaws/backend/products/view/${id}`, {
                     <input type="text" readonly value= "Category : ${info.cname}" name ="category_product">
                 </span>
                 <span class="inputProductView">
-                    <input type="number" value= "1" name ="quantity_product" id="">
+                    <input type="number" value= "1" name ="quantity_product" id="quantity_product">
                 </span>`;
           
                 

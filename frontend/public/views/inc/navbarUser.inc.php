@@ -24,7 +24,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto sousNavbarME2" style="margin-left : 0px !important">
-                <li class="nav-item dropdown drop1">
+                <!-- <li class="nav-item dropdown drop1">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="true">
                         <img class="icon" src="<?=URLROOT?>/layout/image/lang.svg" alt="lang">
@@ -34,7 +34,7 @@
                         <li><a class="dropdown-item" href="<?=URLROOT?>#">FRANCH</a></li>
                         <li><a class="dropdown-item" href="<?=URLROOT?>#">ARABIC</a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="nav-item dropdown drop2">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="true">

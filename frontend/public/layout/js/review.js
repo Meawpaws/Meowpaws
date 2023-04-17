@@ -1,8 +1,7 @@
-const id_user = localStorage.getItem("ID_USER");
 const id_product = localStorage.getItem("ID_PRODUCT");
-
+var ID_USER = localStorage.getItem('ID_USER')
 var id_user_form = document.getElementById("id_user_form");
-id_user_form.value = id_user;
+id_user_form.value = ID_USER;
 var id_produit = document.getElementById("id_produit");
 id_produit.value = id_product;
 
@@ -25,10 +24,8 @@ fileInput.addEventListener("change", function () {
 var form = document.getElementById("form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  // obtenir la valeur de id_user depuis le formulaire
-  const id_user = id_user_form.value;
   // vérifier si id_user est indéfini ou nul
-  if (!id_user || id_user === "null" || id_user === "undefined") {
+  if (!ID_USER || ID_USER === "null" || ID_USER === "undefined") {
     location.replace("../users/login");
   } else {
     const formData = new FormData(form);
