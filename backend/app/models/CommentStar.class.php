@@ -73,4 +73,11 @@ class CommentStar
         $row = $this->db->fetchAll();
         return $row;
     }
+        public function selectImagesCommentById_cs($id)
+    {
+        $this->db->query("SELECT * FROM `picturescommentstar` WHERE id_cs = :id");
+        $this->db->bind(':id',$id);
+        $row = $this->db->fetchAll();
+        return $row;
+    }
 }

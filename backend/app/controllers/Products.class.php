@@ -89,6 +89,12 @@ class Products extends Controller
         $selectByIdStars = $this->productModel->selectByIdStars($id);
         // Blog selectByProductId query
         $selectByProductId = $this->commentStarModel->selectByProductId($id);
+        $imagesComments=[];
+        for ($i=0; $i < count($selectByProductId); $i++) { 
+            $id_cs = $selectByProductId[$i]->id_cs;
+            $imagesComment = $this->commentStarModel->selectImagesCommentById_cs($id_cs);
+            array_push($imagesComments,$imagesComment);
+        }
         // Check if any Product
         if ($productsCategory_arr != null) {
             $productsCategory_arr = $productsCategory_arr[0];
@@ -96,7 +102,8 @@ class Products extends Controller
                 'info'=>$productsCategory_arr,
                 'images'=>$productsImages_arr,
                 'stars'=>$selectByIdStars,
-                'comment'=>$selectByProductId
+                'comment'=>$selectByProductId,
+                'imagesComment' => $imagesComments
             ];   
             // Turn to JSON & output
             echo json_encode($product);
