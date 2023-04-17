@@ -270,4 +270,23 @@ class Admin
         $row = $this->db->fetch();
         return $row;
     }
+    public function latestAll($table,$orderBy,$where = '',$order = 'DESC',$limit=4)
+    {
+        if ($where != '') {
+            $where = 'WHERE ' . $where;
+        }
+        
+        $sql = 'SELECT * FROM '.$table.' ' .$where. ' ORDER BY '. $orderBy .' '.$order.' LIMIT '.$limit;
+        $this->db->query($sql);
+        $rows = $this->db->fetchAll();
+        return $rows;
+    }
+    public function total($table)
+    {
+        $this->db->query( 'SELECT * FROM ' . $table );
+        $this->db->execute();
+        if ( $this->db->rowCount() ) return $this->db->rowCount();
+        else
+        return false;
+    }
 }

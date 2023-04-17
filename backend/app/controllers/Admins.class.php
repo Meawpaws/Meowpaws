@@ -649,4 +649,62 @@ class Admins extends Controller
             );
         }
     }
+    public function Latest()
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+        
+        $itemsLatest= $this->adminModel->latestAll('product','id_p');
+        $usersLatest= $this->adminModel->latestAll('users','id_u');
+        $categoriesLatest= $this->adminModel->latestAll('category','id_c');
+        $commentsLatest= $this->adminModel->latestAll('users u,commentstar c','c.id_cs','u.id_u = c.id_u');
+        
+        if ($itemsLatest||$usersLatest||$categoriesLatest||$commentsLatest) {
+            echo json_encode(
+                array(
+                    'message' => 'Latest Isset',
+                    "result" => [
+                        'itemsLatest' =>$itemsLatest,
+                        'usersLatest' =>$usersLatest,
+                        'categoriesLatest' =>$categoriesLatest,
+                        'commentsLatest' =>$commentsLatest
+                    ]
+                )
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Latest Not Isset')
+            );
+        }
+    }
+    public function Statistic()
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $itemsTotal= $this->adminModel->total('product');
+        $usersTotal= $this->adminModel->total('users');
+        $categoriesTotal= $this->adminModel->total('category');
+        
+        if ($itemsTotal||$usersTotal||$categoriesTotal) {
+            echo json_encode(
+                array(
+                    'message' => 'Statistic Isset',
+                    "result" => [
+                        'itemsTotal' =>$itemsTotal,
+                        'usersTotal' =>$usersTotal,
+                        'categoriesTotal' =>$categoriesTotal
+                    ]
+                )
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Total Not Isset')
+            );
+        }
+    }
 }
