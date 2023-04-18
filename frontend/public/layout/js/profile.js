@@ -127,8 +127,7 @@ function deleteProfile(id) {
     .then(res => res.json())
     .then(data => {
       if (data.message == "Account Deleted") {
-        location.replace(`${URLROOT}`);
-        localStorage.getItem('ID_USER',undefined)
+        location.replace(`${URLROOT}users/logout`);
       } else {
         location.replace(`${URLROOT}users/profile`);
       }
