@@ -43,8 +43,17 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
     .then(data => {
       if (data.message == "Statistic Isset") {
         var items = data.result.itemsTotal;
+        if (items == false) {
+          items = 0
+        }
         var users = data.result.usersTotal;
+        if (users == false) {
+          users = 0
+        }
         var categories = data.result.categoriesTotal;
+        if (categories == false) {
+          categories = 0
+        }
 
         itemsTotal.textContent = items;
         usersTotal.textContent = users;
