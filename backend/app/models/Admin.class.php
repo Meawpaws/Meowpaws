@@ -289,4 +289,11 @@ class Admin
         else
         return false;
     }
+    public function getAll($table)
+    {
+        $sql = 'SELECT * FROM '.$table;
+        $this->db->query($sql);
+        $rows = $this->db->fetchAll();
+        return $rows;
+    }
 }

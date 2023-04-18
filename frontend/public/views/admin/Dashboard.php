@@ -97,7 +97,7 @@
                 <div class='panel panel-default'>
                     <div class='panel-heading'>
                         <i class='fa fa-comments'></i>
-                        Latest 4 Comments
+                        <span style="cursor: pointer;" onclick="location.replace('<?=URLROOT?>admin/CommentsContact');">Latest 4 Comments</span>
                         <span class='toggle-info pull-right'>
                             <i class='fa fa-plus fa-lg'></i>
                         </span>

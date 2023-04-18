@@ -2079,3 +2079,10 @@ margin-bottom:1rem;
     font-size: 30px;
     color: #000000;
 }
+/* comment contact */
+.btnCC{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 10px;
+}

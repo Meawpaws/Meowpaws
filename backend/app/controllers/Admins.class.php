@@ -707,4 +707,28 @@ class Admins extends Controller
             );
         }
     }
+    public function Comments()
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $comments = $this->adminModel->getAll('commentstar');
+        echo json_encode(
+            array("result" => $comments)
+        );
+    }
+    public function Contacts()
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');
+
+        $contact = $this->adminModel->getAll('contact');
+        echo json_encode(
+            array("result" => $contact)
+        );
+    }
 }
