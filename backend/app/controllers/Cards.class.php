@@ -77,4 +77,49 @@ class Cards extends Controller
             );
         }
     }
+    public function DeleteProductInCardByIdUser($id_u)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');     
+
+        $return = $this->cartModel->DeleteBuyIdUser($id_u);
+        if($return) {
+            echo json_encode(
+            array(
+                'message' => 'Products deleted'
+                )
+            );
+        } else {
+            echo json_encode(
+            array('message' => 'Didn\'t Products delete')
+            );
+        }
+    }
+    public function Checkout()
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: POST');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');        
+
+        $data = json_decode(file_get_contents("php://input"));
+
+        $id_user = $data->id_user;
+        $price = $data->price;
+
+
+        if($this->cartModel->Checkout($id_user,$price)) {
+            echo json_encode(
+            array(
+                'message' => 'Checkout Susses'
+                )
+            );
+        } else {
+            echo json_encode(
+            array('message' => 'Checkout Not Susses')
+            );
+        }
+    }
 }

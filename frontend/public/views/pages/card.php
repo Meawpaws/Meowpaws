@@ -22,13 +22,14 @@
             </table>
             <div class="float-right text-right">
                 <h4>Subtotal:</h4>
-                <h1 id="sumPrice"></h1>
+                <h1 id="sumPrice">$0</h1>
             </div>
         </div>
     </div>
     <div class="row mt-4 d-flex align-items-center">
         <div class="col-sm-6 order-md-2 text-right">
-            <a href="<?=URLROOT?>pages/checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a>
+            <!-- <a href="<?=URLROOT?>pages/checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a> -->
+            <a id="checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a>
         </div>
         <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
             <a href="<?=URLROOT?>pages/shop">

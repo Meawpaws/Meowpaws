@@ -1,3 +1,5 @@
+const checkout = document.getElementById("checkout");
+
 var arrayProductIndexDeleted = [];
 
 localStorage.setItem("arrayProductIndexDeleted", arrayProductIndexDeleted);
@@ -180,3 +182,44 @@ function deleteITem(id_card, i) {
       console.log(data);
     });
 }
+
+checkout.addEventListener("click", () => {
+  const sumPrice2 = document.getElementById("sumPrice");
+  const priceGlobal2 = sumPrice2.innerHTML;
+  console.log(priceGlobal2, id_user);
+  if (priceGlobal2 != '$0') {
+    fetch(
+      `http://localhost/meowpaws/backend/Cards/DeleteProductInCardByIdUser/${id_user}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
+      var dataCheckout={
+        price : priceGlobal2, 
+        id_user : id_user
+      }
+      console.log(dataCheckout);
+      fetch(`http://localhost/meowpaws/backend/Cards/Checkout`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dataCheckout)
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.message == "Checkout Susses") {
+            location.replace(`${URLROOT}pages/Card`);
+          } else {
+            location.replace(`${URLROOT}pages/Card`);
+          }
+        });
+  }
+});
