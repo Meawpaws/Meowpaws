@@ -27,7 +27,7 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
         console.log(result);
         var count = result.length;
         var tr = "";
-        var sumPriceGlobalFirst = 0
+        var sumPriceGlobalFirst = 0;
         for (let i = 0; i < result.length; i++) {
           var id_card = result[i].id_card;
           var imagePricipal = result[i].imagePricipal;
@@ -36,9 +36,9 @@ if (!id_user || id_user === "null" || id_user === "undefined") {
           var priceCard = result[i].priceCard;
           var quantité = result[i].quantité;
 
-          sumPriceGlobalFirst += priceCard
+          sumPriceGlobalFirst += priceCard;
 
-          sumPrice.innerText = `$${sumPriceGlobalFirst}`
+          sumPrice.innerText = `$${sumPriceGlobalFirst}`;
 
           tr += `<tr id="${i}">
                   <td data-th="Product">
@@ -92,72 +92,72 @@ function changeQuantity(i, price) {
   });
 }
 
-function changePriceTotalWithDeleteProduct(taille,indexDeleted) {
-    var arrayPrice = [];
-    var arrayPriceNoDeleted = [];
-    for (let i = 0; i < taille; i++) {
-      let priceGlobal = document.getElementById(`priceGlobal${i}`);
-      var priceAvec$ = priceGlobal.innerText;
-      var priceArray = priceAvec$.split("$");
-      var price = priceArray[1];
+function changePriceTotalWithDeleteProduct(taille, indexDeleted) {
+  var arrayPrice = [];
+  var arrayPriceNoDeleted = [];
+  for (let i = 0; i < taille; i++) {
+    let priceGlobal = document.getElementById(`priceGlobal${i}`);
+    var priceAvec$ = priceGlobal.innerText;
+    var priceArray = priceAvec$.split("$");
+    var price = priceArray[1];
 
-      arrayPrice.push(price);
+    arrayPrice.push(price);
 
-      arrayProductIndexDeleted.push(indexDeleted)
-      localStorage.setItem("arrayProductIndexDeleted",arrayProductIndexDeleted);
-      for (let j = 0; j < arrayProductIndexDeleted.length; j++) {
-        if (i == arrayProductIndexDeleted[j]) {
-          delete arrayPrice[i];
-        }
+    arrayProductIndexDeleted.push(indexDeleted);
+    localStorage.setItem("arrayProductIndexDeleted", arrayProductIndexDeleted);
+    for (let j = 0; j < arrayProductIndexDeleted.length; j++) {
+      if (i == arrayProductIndexDeleted[j]) {
+        delete arrayPrice[i];
       }
     }
-    for (let i = 0; i < arrayPrice.length; i++) {
-      if (arrayPrice[i] != undefined) {
-        arrayPriceNoDeleted.push(arrayPrice[i]);
-      }
-    }
-    var sum = 0;
-    for (let i = 0; i < arrayPriceNoDeleted.length; i++) {
-      sum += parseFloat(arrayPriceNoDeleted[i]);
-    }
-    sumPrice.innerText = `$${sum}`;
   }
+  for (let i = 0; i < arrayPrice.length; i++) {
+    if (arrayPrice[i] != undefined) {
+      arrayPriceNoDeleted.push(arrayPrice[i]);
+    }
+  }
+  var sum = 0;
+  for (let i = 0; i < arrayPriceNoDeleted.length; i++) {
+    sum += parseFloat(arrayPriceNoDeleted[i]);
+  }
+  sumPrice.innerText = `$${sum}`;
+}
 
 function changePriceTotalWithChangeQuantity(taille) {
   for (let index = 0; index < taille; index++) {
     let quantity_product0 = document.getElementById(`quantity_product${index}`);
-  quantity_product0.addEventListener("input", () => {
-    var arrayPrice = [];
-    var arrayPriceNoDeleted = [];
-    for (let i = 0; i < taille; i++) {
-      let priceGlobal = document.getElementById(`priceGlobal${i}`);
-      var priceAvec$ = priceGlobal.innerText;
-      var priceArray = priceAvec$.split("$");
-      var price = priceArray[1];
+    quantity_product0.addEventListener("input", () => {
+      var arrayPrice = [];
+      var arrayPriceNoDeleted = [];
+      for (let i = 0; i < taille; i++) {
+        let priceGlobal = document.getElementById(`priceGlobal${i}`);
+        var priceAvec$ = priceGlobal.innerText;
+        var priceArray = priceAvec$.split("$");
+        var price = priceArray[1];
 
-      arrayPrice.push(price);
+        arrayPrice.push(price);
 
-      var arrayProductIndexDeleted = localStorage.getItem(
-        "arrayProductIndexDeleted"
-      );
-      for (let j = 0; j < arrayProductIndexDeleted.length; j++) {
-        if (i == arrayProductIndexDeleted[j]) {
-          delete arrayPrice[i];
+        var arrayProductIndexDeleted = localStorage.getItem(
+          "arrayProductIndexDeleted"
+        );
+        for (let j = 0; j < arrayProductIndexDeleted.length; j++) {
+          if (i == arrayProductIndexDeleted[j]) {
+            delete arrayPrice[i];
+          }
         }
       }
-    }
-    for (let i = 0; i < arrayPrice.length; i++) {
-      if (arrayPrice[i] != undefined) {
-        arrayPriceNoDeleted.push(arrayPrice[i]);
+      for (let i = 0; i < arrayPrice.length; i++) {
+        if (arrayPrice[i] != undefined) {
+          arrayPriceNoDeleted.push(arrayPrice[i]);
+        }
       }
-    }
-    var sum = 0;
-    for (let i = 0; i < arrayPriceNoDeleted.length; i++) {
-      sum += parseFloat(arrayPriceNoDeleted[i]);
-    }
-    sumPrice.innerText = `$${sum}`;
-  });
-}
+      var sum = 0;
+      for (let i = 0; i < arrayPriceNoDeleted.length; i++) {
+        sum += parseFloat(arrayPriceNoDeleted[i]);
+      }
+      sumPrice.innerText = `$${sum}`;
+    });
+  }
 }
 
 function deleteITem(id_card, i) {
