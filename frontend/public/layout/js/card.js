@@ -92,6 +92,36 @@ function changeQuantity(i, price) {
   });
 }
 
+function changePriceTotalWithDeleteProduct(taille,indexDeleted) {
+    var arrayPrice = [];
+    var arrayPriceNoDeleted = [];
+    for (let i = 0; i < taille; i++) {
+      let priceGlobal = document.getElementById(`priceGlobal${i}`);
+      var priceAvec$ = priceGlobal.innerText;
+      var priceArray = priceAvec$.split("$");
+      var price = priceArray[1];
+
+      arrayPrice.push(price);
+
+      arrayProductIndexDeleted.push(indexDeleted)
+      localStorage.setItem("arrayProductIndexDeleted",arrayProductIndexDeleted);
+      for (let j = 0; j < arrayProductIndexDeleted.length; j++) {
+        if (i == arrayProductIndexDeleted[j]) {
+          delete arrayPrice[i];
+        }
+      }
+    }
+    for (let i = 0; i < arrayPrice.length; i++) {
+      if (arrayPrice[i] != undefined) {
+        arrayPriceNoDeleted.push(arrayPrice[i]);
+      }
+    }
+    var sum = 0;
+    for (let i = 0; i < arrayPriceNoDeleted.length; i++) {
+      sum += parseFloat(arrayPriceNoDeleted[i]);
+    }
+    sumPrice.innerText = `$${sum}`;
+  }
 
 function changePriceTotalWithChangeQuantity(taille) {
   for (let index = 0; index < taille; index++) {
