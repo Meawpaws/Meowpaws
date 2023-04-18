@@ -26,10 +26,11 @@ class User
         else
             return false;
     }
-    public function updateAvatar($avatar)
+    public function updateAvatar($avatar,$id)
     {
         $this->db->query("UPDATE `users` SET`avatar_user`=:avatar WHERE `id_u` = :id");
         $this->db->bind(':avatar', $avatar);
+        $this->db->bind(':id', $id);
         if ($this->db->execute())
             return true;
         else
@@ -68,5 +69,21 @@ class User
         } else {
             return false;
         }
+    }
+    public function getInfo($id)
+    {
+        $this->db->query("SELECT * FROM users WHERE id_u = :id");
+        $this->db->bind(':id', $id);
+        $row = $this->db->fetch();
+        return $row;
+    }
+    public function Update( $table, $sql, $id )
+ {
+        $sql = "UPDATE $table SET $sql WHERE $id";
+        $this->db->query( $sql );
+        if ( $this->db->execute() )
+        return true;
+        else
+        return false;
     }
 }

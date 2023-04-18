@@ -13,7 +13,6 @@ if (ulNavbarUser) {
                         <li><a class="dropdown-item" href="${URLROOT}users/register">SIGNUP</a></li>
                         `
     } else {
-        console.log(role_user);
         if (role_user == 1) {
             liNavbarUser = `
                             <li><a class="dropdown-item" href="${URLROOT}admin">GO TO ADMIN</a></li>
