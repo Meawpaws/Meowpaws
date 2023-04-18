@@ -5,8 +5,8 @@
     <div class="row w-100">
         <div class="col-lg-12 col-md-12 col-12">
             <h3 class="display-5 mb-2 text-center">Shopping Cart</h3>
-            <p class="mb-5 text-center">
-                <i class="text-info font-weight-bold">3</i> items in your cart</p>
+            <p class="mb-5 text-center" id="itemsTotalP">
+                <i class="text-info font-weight-bold" id="itemsTotal"></i> items in your cart</p>
             <table id="shoppingCart" class="table table-condensed table-responsive">
                 <thead>
                     <tr>

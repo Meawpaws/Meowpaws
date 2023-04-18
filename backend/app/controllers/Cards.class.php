@@ -57,4 +57,24 @@ class Cards extends Controller
             );
         }
     }
+    public function DeleteProductInCard($id_card)
+    {
+        header('Access-Control-Allow-Origin:*');
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Method: GET');
+        header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorisation');     
+
+        $return = $this->cartModel->DeleteBuy($id_card);
+        if($return) {
+            echo json_encode(
+            array(
+                'message' => 'Products deleted'
+                )
+            );
+        } else {
+            echo json_encode(
+            array('message' => 'Didn\'t Products delete')
+            );
+        }
+    }
 }
