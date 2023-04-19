@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 20 avr. 2023 à 00:22
+-- Généré le : jeu. 20 avr. 2023 à 00:26
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -91,9 +91,9 @@ CREATE TABLE `commentstar` (
 CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
   `name` text NOT NULL,
-  `email` int(11) NOT NULL,
+  `email` text NOT NULL,
   `telephone` int(11) NOT NULL,
-  `message` int(11) NOT NULL
+  `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -316,7 +316,7 @@ ALTER TABLE `commentstar`
 -- AUTO_INCREMENT pour la table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `picturesproduct`
