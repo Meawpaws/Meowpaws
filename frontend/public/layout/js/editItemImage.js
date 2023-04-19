@@ -164,7 +164,7 @@ function updateImage(id_i, j) {
 
 function deleteImage(id_i, i) {
   var updateImage = document.getElementById(`updateImage${i}`);
-  sansImage = "item.svg";
+  sansImage = "item.png";
   fetch(`http://localhost/meowpaws/backend/Admins/deleteSecondeImage/${id_i}`, {
     method: "GET",
     headers: {
