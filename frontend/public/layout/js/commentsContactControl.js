@@ -95,7 +95,7 @@ contactBtn.addEventListener('click',()=>{
         for (let i = 0; i < result.length; i++) {
           tr += `<tr>
                     <td>${result[i].name}</td>
-                    <td>$${result[i].email}</td>
+                    <td>${result[i].email}</td>
                     <td>${result[i].telephone}</td>
                     <td>${result[i].message}</td>
                   </tr>`;
