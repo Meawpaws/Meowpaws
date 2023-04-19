@@ -1,5 +1,5 @@
 var URLROOT_IMAGE = `http://localhost/Meowpaws/layout/image/products/`;
-var IMG_DEFAULT = `http://localhost/Meowpaws/layout/image/products/item.svg`;
+var IMG_DEFAULT = `http://localhost/Meowpaws/layout/image/products/item.png`;
 
 var formUpdateIP = document.getElementById("formUpdateIP");
 var newImageIP = document.getElementById("newImageIP");
